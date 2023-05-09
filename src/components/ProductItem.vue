@@ -1,6 +1,7 @@
 <template>
-    <div>
+    <div class="item">
         {{Product_data.name}}
+        {{Product_data.price}}р
     </div>
 </template>
 
@@ -16,5 +17,8 @@ export default {
 </script>
 
 <style scoped>
-
+.item
+{
+    flex-direction: column;
+}
 </style>

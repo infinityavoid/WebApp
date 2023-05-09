@@ -37,6 +37,10 @@ export default {
 <style scoped>
 .closeButton
 {
-
+ color: var(--tg-theme-button-color);
+ cursor: pointer;
+ outline: none;
+ transition: transform var(--animation);
 }
+
 </style>

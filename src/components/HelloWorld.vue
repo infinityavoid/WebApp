@@ -1,6 +1,7 @@
 <template>
   <div @click="aboba" class="hello">
-    aesfas
+    dasdasdas
+    <button @click="close"></button>
   </div>
 </template>
 
@@ -19,8 +20,11 @@ export default {
       aboba()
       {
         console.log(tg)
+      },
+      close()
+      {
+        tg.close()
       }
-
     }
 }
 

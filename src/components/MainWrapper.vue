@@ -1,14 +1,15 @@
 <template>
   <div @click="aboba" class="hello">
     <h3>Здравствуйте {{tg.initDataUnsafe?.user?.username}}, что вы хотите заказать?</h3>
-    <button class="closeButton" @click="close"></button>
-    <h3>{{tg.initDataUnsafe?.user?.username}}</h3>
+    <button class="closeButton" @click="close">Закрой эту каку</button>
+    <Products/>
   </div>
 </template>
 
  
 
 <script>
+import Products from '../components/ProductList.vue'
 export default {
   data(){
         return {
@@ -25,6 +26,9 @@ export default {
       {
         this.tg.close()
       }
+    },
+    components: {
+      Products
     }
 }
 

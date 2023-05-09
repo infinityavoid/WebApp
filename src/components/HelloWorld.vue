@@ -2,29 +2,28 @@
   <div @click="aboba" class="hello">
     dasdasdas
     <button class="closeButton" @click="close"></button>
-    <h3>{{window.Telegram.WebApp.initDataUnsafe?.user?.username}}</h3>
+    <h3>{{tg.initDataUnsafe?.user?.username}}</h3>
   </div>
 </template>
 
  
 
 <script>
-const tg = window.Telegram.WebApp
 export default {
   data(){
         return {
-
+          tg: window.Telegram.WebApp
         } 
     },
     methods:
     {
       aboba()
       {
-        console.log(tg)
+        console.log(this.tg)
       },
       close()
       {
-        tg.close()
+        this.tg.close()
       }
     }
 }

@@ -2,7 +2,7 @@
   <div @click="aboba" class="hello">
     dasdasdas
     <button class="closeButton" @click="close"></button>
-    <h3>{{window.Telegram.WebApp.initDataUnsafe}}</h3>
+    <h3>{{window.Telegram.WebApp.initDataUnsafe?.user?.username}}</h3>
   </div>
 </template>
 

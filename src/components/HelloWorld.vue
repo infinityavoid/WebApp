@@ -1,7 +1,8 @@
 <template>
   <div @click="aboba" class="hello">
     dasdasdas
-    <button @click="close"></button>
+    <button class="closeButton" @click="close"></button>
+    <h3>{{tg.initDataUnsafe}}</h3>
   </div>
 </template>
 
@@ -31,5 +32,8 @@ export default {
 </script>
 
 <style scoped>
+.closeButton
+{
 
+}
 </style>

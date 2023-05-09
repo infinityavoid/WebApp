@@ -1,6 +1,6 @@
 <template>
   <div @click="aboba" class="hello">
-    dasdasdas
+    <h3>Здравствуйте {{tg.initDataUnsafe?.user?.username}}, что вы хотите заказать?</h3>
     <button class="closeButton" @click="close"></button>
     <h3>{{tg.initDataUnsafe?.user?.username}}</h3>
   </div>

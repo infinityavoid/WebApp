@@ -20,8 +20,7 @@ export default {
     {
       close()
       {
-        this.tg.MainButton.isVisible = true
-        this.tg.MainButton.show()
+        this.tg.close()
       }
     },
     components: {

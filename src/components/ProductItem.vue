@@ -52,14 +52,14 @@ export default {
         IsOrderCompleteted()
         {
             if (this.allProducts.orderItems.length)
-        {
-          console.log('a')
-          this.tg.MainButton.show()
-        }
-        else{
-          console.log('b')
-          this.tg.MainButton.hide()
-        }
+            {
+                console.log('a')
+                this.tg.MainButton.show()
+            }
+            else{
+                console.log('b')
+                this.tg.MainButton.hide()
+            }
         }
     },
     computed:{

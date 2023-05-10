@@ -3,11 +3,11 @@
         <label>{{Product_data.name}}</label>
         <label>{{Product_data.price}}р</label>
         <div v-if="alreadyExists === true">
-            <button @click="del()"/>
+            <button @click="del()">-</button>
             <label >{{ quantity }}</label>
-            <button @click="add()"/>
+            <button @click="add()">+</button>
         </div>
-        <button v-else @click="add()" class="addButton" text="Добавить"/>
+        <button v-else @click="add()" class="addButton">Добавить</button>
     </div>
 </template>
 

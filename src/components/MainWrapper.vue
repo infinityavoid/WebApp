@@ -25,7 +25,27 @@ export default {
     },
     components: {
       Products
-    }
+    },
+    computed:{
+      AllInfo()
+      {
+        return this.$store.getters.AllInfo
+      },
+      IsOrderComplete()
+      {
+        if (this.AllInfo.orderItems.length)
+        {
+          console.log('a')
+          return this.tg.MainButton.show()
+        }
+        else{
+          console.log('b')
+          return this.tg.MainButton.hide()
+        }
+
+      }
+    },  
+    
 }
 
 </script>

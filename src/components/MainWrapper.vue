@@ -3,7 +3,7 @@
     <h3>Здравствуйте {{AllInfo.tg.initDataUnsafe?.user?.username}}, что вы хотите заказать?</h3>
     <Products/>
     <button class="closeButton" @click="close">Закрой эту каку</button>
-    <MainButton></MainButton>
+    <MainButton v-if="useWebAppMainButton().isMainButtonVisible"></MainButton>
   </div>
 </template>
 
@@ -12,6 +12,7 @@
 <script>
 import Products from '../components/ProductList.vue'
 import { MainButton } from "vue-tg"
+import { useWebAppMainButton } from "vue-tg";
 export default {
   data(){
         return {

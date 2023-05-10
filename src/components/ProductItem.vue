@@ -18,6 +18,7 @@ export default {
             quantity:'',
             alreadyExists:false,
             tg: window.Telegram.WebApp
+            
         } 
     },
     props:{Product_data:Object},
@@ -70,7 +71,13 @@ export default {
     allProducts(){
       return this.$store.getters.AllInfo  
     },
-}
+},
+mounted()
+    {
+            window.Telegram.WebApp.MainButton.setParams({
+      text_color: '#fff'
+    }).onClick(this.IsOrderCompleteted());
+    } 
 }
 </script>
 

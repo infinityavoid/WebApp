@@ -37,12 +37,14 @@ export default {
             this.quantity = this.allProducts.orderItems[a].quantity
         },
         del()
-        {
-            let prod = {
-                id:this.Product_data.id,
-                quantity:1
+        { 
+            let a = this.allProducts.orderItems.findIndex(item => item.id === this.Product_data.id)
+            this.$store.dispatch('del', this.Product_data.id)
+            try
+            {
+                this.quantity = this.allProducts.orderItems[a].quantity 
             }
-            this.$store.dispatch('del',prod)
+            catch(e){this.alreadyExists = false}
         }
     },
     computed:{

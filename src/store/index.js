@@ -34,10 +34,16 @@ const store = createStore({
                 state.orderItems[search].quantity++
             }
         },
-        del(state, prod)
+        del(state, id)
         {
-            let search = state.orderItems.findIndex(item => item.id === prod.id)
-            state.orderItems[search].quantity--
+            let search = state.orderItems.findIndex(item => item.id === id)
+            console.log(search)
+            state.orderItems[search].quantity = state.orderItems[search].quantity - 1
+            if (state.orderItems[search].quantity === 0)
+            {
+                state.orderItems.splice(search,1)
+            }
+            console.log(state.orderItems)
         },
 
     },
@@ -46,9 +52,9 @@ const store = createStore({
         {
             ctx.commit('add', prod)
         },
-        del(ctx, prod)
+        del(ctx, id)
         {
-            ctx.commit('del', prod)
+            ctx.commit('del', id)
         },
     },
     getters:{

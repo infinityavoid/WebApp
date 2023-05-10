@@ -1,7 +1,7 @@
 import { createStore } from "vuex"
-
 const store = createStore({
     state:{
+        tg: window.Telegram.WebApp,
         Products:[
             {id:1,name:'q',price: 1000},
             {id:2,name:'w',price: 2000},

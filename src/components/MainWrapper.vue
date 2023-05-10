@@ -13,17 +13,16 @@ import Products from '../components/ProductList.vue'
 export default {
   data(){
         return {
-          tg: window.Telegram.WebApp
         } 
     },
     methods:
     {
       close()
       {
-        if (this.tg.MainButton.isVisible){
-         this.tg.MainButton.hide()
+        if (this.AllInfo.tg.MainButton.isVisible){
+          this.AllInfo.tg.MainButton.hide()
       }
-      else this.tg.MainButton.show()
+      else this.AllInfo.tg.MainButton.show()
       }
     },
     components: {

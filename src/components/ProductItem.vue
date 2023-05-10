@@ -17,8 +17,6 @@ export default {
         return {
             quantity:'',
             alreadyExists:false,
-            tg: window.Telegram.WebApp
-            
         } 
     },
     props:{Product_data:Object},
@@ -55,16 +53,11 @@ export default {
             if (this.allProducts.orderItems.length)
             {
                 console.log('a')
-                this.tg.MainButton.setParams({
-                is_visible: true,
-        })
-        this.tg.MainButton.show()
+                this.allProducts.tg.MainButton.show()
             }
             else{
                 console.log('b')
-                this.tg.MainButton.setParams({
-                is_visible: false,
-        })
+                this.allProducts.tg.MainButton.hide()
             }
         }
     },
@@ -73,12 +66,6 @@ export default {
       return this.$store.getters.AllInfo  
     },
 },
-mounted()
-    {
-            window.Telegram.WebApp.MainButton.setParams({
-      text_color: '#fff'
-    }).onClick(this.IsOrderCompleteted());
-    } 
 }
 </script>
 

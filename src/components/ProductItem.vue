@@ -16,7 +16,8 @@ export default {
     data(){
         return {
             quantity:'',
-            alreadyExists:false
+            alreadyExists:false,
+            tg: window.Telegram.WebApp
         } 
     },
     props:{Product_data:Object},
@@ -35,6 +36,7 @@ export default {
             }
             else{this.alreadyExists = true}
             this.quantity = this.allProducts.orderItems[a].quantity
+            this.IsOrderCompleteted()
         },
         del()
         { 
@@ -45,6 +47,19 @@ export default {
                 this.quantity = this.allProducts.orderItems[a].quantity 
             }
             catch(e){this.alreadyExists = false}
+            this.IsOrderCompleteted()
+        },
+        IsOrderCompleteted()
+        {
+            if (this.allProducts.orderItems.length)
+        {
+          console.log('a')
+          this.tg.MainButton.show()
+        }
+        else{
+          console.log('b')
+          this.tg.MainButton.hide()
+        }
         }
     },
     computed:{

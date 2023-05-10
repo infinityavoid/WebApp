@@ -32,23 +32,6 @@ export default {
         return this.$store.getters.AllInfo
       },
     },  
-    watch:{
-      AllInfo()
-      {
-        console.log('c')
-        if (this.AllInfo.orderItems.length)
-        {
-          console.log('a')
-          this.tg.MainButton.show()
-        }
-        else{
-          console.log('b')
-          this.tg.MainButton.hide()
-        }
-
-      }
-    }
-
 }
 
 </script>

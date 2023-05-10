@@ -58,6 +58,7 @@ export default {
                 this.tg.MainButton.setParams({
                 is_visible: true,
         })
+        this.tg.MainButton.show()
             }
             else{
                 console.log('b')

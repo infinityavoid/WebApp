@@ -20,7 +20,7 @@ export default {
     {
       close()
       {
-        this.tg.close()
+        this.tg.MainButton.show()
       }
     },
     components: {

@@ -54,11 +54,15 @@ export default {
             if (this.allProducts.orderItems.length)
             {
                 console.log('a')
-                this.tg.MainButton.show()
+                this.tg.MainButton.setParams({
+                is_visible: true,
+        })
             }
             else{
                 console.log('b')
-                this.tg.MainButton.hide()
+                this.tg.MainButton.setParams({
+                is_visible: false,
+        })
             }
         }
     },

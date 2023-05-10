@@ -35,7 +35,10 @@ const store = createStore({
             }
             console.log(state.orderItems)
         },
-
+        showhide(state)
+        {
+            state.tg.close()
+        },
     },
     actions:{
         add(ctx, prod)
@@ -46,6 +49,10 @@ const store = createStore({
         {
             ctx.commit('del', id)
         },
+        showhide(ctx)
+        {
+            ctx.commit('showhide')
+        }
     },
     getters:{
         AllInfo(state)

@@ -19,10 +19,11 @@ export default {
     {
       close()
       {
-        if (this.AllInfo.tg.MainButton.isVisible){
+        /*if (this.AllInfo.tg.MainButton.isVisible){
           this.AllInfo.tg.MainButton.hide()
       }
-      else this.AllInfo.tg.MainButton.show()
+      else this.AllInfo.tg.MainButton.show()*/
+      this.$store.dispatch('showhide')
       }
     },
     components: {

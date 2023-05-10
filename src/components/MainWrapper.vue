@@ -1,5 +1,5 @@
 <template>
-  <div @click="aboba" class="main">
+  <div class="main">
     <h3>Здравствуйте {{tg.initDataUnsafe?.user?.username}}, что вы хотите заказать?</h3>
     <Products/>
     <button class="closeButton" @click="close">Закрой эту каку</button>
@@ -18,10 +18,6 @@ export default {
     },
     methods:
     {
-      aboba()
-      {
-        console.log(this.tg)
-      },
       close()
       {
         this.tg.close()

@@ -2,6 +2,12 @@
     <div class="item">
         <label>{{Product_data.name}}</label>
         <label>{{Product_data.price}}р</label>
+        <div v-if="alreadyExists === true">
+            <button @click="del()"/>
+            <label >{{ quantity }}</label>
+            <button @click="add()"/>
+        </div>
+        <button v-else @click="add()" class="addButton" text="Добавить"/>
     </div>
 </template>
 
@@ -9,10 +15,41 @@
 export default {
     data(){
         return {
-        
+            quantity:'',
+            alreadyExists:false
         } 
     },
-    props:{Product_data:Object}
+    props:{Product_data:Object},
+    methods:{
+        add()
+        {
+            let prod = {
+                id:this.Product_data.id,
+                quantity:1
+            }
+            this.$store.dispatch('add', prod)
+            let a = this.allProducts.orderItems.findIndex(item => item.id === this.Product_data.id)
+            if(a === -1)
+            {
+                this.alreadyExists = false
+            }
+            else{this.alreadyExists = true}
+            this.quantity = this.allProducts.orderItems[a].quantity
+        },
+        del()
+        {
+            let prod = {
+                id:this.Product_data.id,
+                quantity:1
+            }
+            this.$store.dispatch('del',prod)
+        }
+    },
+    computed:{
+    allProducts(){
+      return this.$store.getters.AllInfo  
+    },
+}
 }
 </script>
 
@@ -28,5 +65,9 @@ export default {
     box-shadow: 0 0 8px 0 #e0e0e0;
     border: 1px solid var(--tg-theme-button-color);
     padding: 15px;
+}
+.addButton
+{
+    color: var(--tg-theme-bg-color);
 }
 </style>

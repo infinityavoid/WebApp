@@ -37,7 +37,7 @@ const store = createStore({
         },
         showhide(state)
         {
-            state.tg.close()
+            state.tg.MainButton.Show()
         },
     },
     actions:{

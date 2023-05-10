@@ -37,10 +37,7 @@ const store = createStore({
         },
         showhide(state)
         {
-            const mainButton = state.tg.MainButton;
-            mainButton.text = `View Order, or whatever you wish`;
-            mainButton.enable();  
-            mainButton.show();
+            state.tg.MainButton.show()
         },
     },
     actions:{

@@ -22,6 +22,13 @@ export default {
               {id:6,name:'y',price: 6000},
               {id:7,name:'u',price: 7000},
               {id:8,name:'i',price: 8000},
+              {id:9,name:'i',price: 8000},
+              {id:10,name:'i',price: 8000},
+              {id:11,name:'i',price: 8000},
+              {id:12,name:'i',price: 8000},
+              {id:13,name:'i',price: 8000},
+              {id:14,name:'i',price: 8000},
+
           ]
         } 
     },
@@ -34,13 +41,13 @@ export default {
 <style scoped>
 .PList
 {
+  vertical-align: middle;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 100%;
+  display: flex; 
   flex-wrap: wrap;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
-  display: flex;
-  overflow: auto;
-  align-self: center;
+  justify-content: center;
 }
 </style>
   

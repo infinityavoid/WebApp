@@ -1,7 +1,7 @@
 <template>
     <div class="item">
-        {{Product_data.name}}
-        {{Product_data.price}}р
+        <label>{{Product_data.name}}</label>
+        <label>{{Product_data.price}}р</label>
     </div>
 </template>
 
@@ -19,6 +19,14 @@ export default {
 <style scoped>
 .item
 {
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    width: 10%;
+    height: 10%;
+    margin-bottom: 10px;
+    box-shadow: 0 0 8px 0 #e0e0e0;
+    border: 1px solid var(--tg-theme-button-color);
+    overflow: auto;
 }
 </style>

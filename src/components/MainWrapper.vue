@@ -1,8 +1,8 @@
 <template>
-  <div @click="aboba" class="hello">
+  <div @click="aboba" class="main">
     <h3>Здравствуйте {{tg.initDataUnsafe?.user?.username}}, что вы хотите заказать?</h3>
-    <button class="closeButton" @click="close">Закрой эту каку</button>
     <Products/>
+    <button class="closeButton" @click="close">Закрой эту каку</button>
   </div>
 </template>
 
@@ -42,5 +42,9 @@ export default {
  outline: none;
  transition: transform var(--animation);
 }
-
+.main
+{
+  width: 100%;
+  height: 100%;
+}
 </style>

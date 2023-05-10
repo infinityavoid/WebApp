@@ -20,7 +20,7 @@ export default {
     {
       close()
       {
-        this.tg.close()
+        this.tg.MainButton.show()
       }
     },
     components: {
@@ -31,21 +31,24 @@ export default {
       {
         return this.$store.getters.AllInfo
       },
-      IsOrderComplete()
+    },  
+    watch:{
+      AllInfo()
       {
+        console.log('c')
         if (this.AllInfo.orderItems.length)
         {
           console.log('a')
-          return this.tg.MainButton.show()
+          this.tg.MainButton.show()
         }
         else{
           console.log('b')
-          return this.tg.MainButton.hide()
+          this.tg.MainButton.hide()
         }
 
       }
-    },  
-    
+    }
+
 }
 
 </script>

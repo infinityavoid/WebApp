@@ -1,6 +1,5 @@
 import { createStore } from "vuex"
 import { WebApp } from 'miku-web-app'
-const telega = window.Telegram.WebApp
 const store = createStore({
     state:{
         tg: WebApp,
@@ -42,16 +41,25 @@ const store = createStore({
         {
             if(state.orderItems.length)
             {
-                console.log('a')
-                telega.MainButton.show()
-                telega.MainButton.enable()
+                let data = 
+                {
+                    items:state.orderItems
+                }
+                WebApp.MainButton.show()
+                WebApp.MainButton.enable()
+                WebApp.onEvent('mainButtonClicked', )
+                return() => {WebApp.offEvent('mainButtonClicked', WebApp.sendData(JSON.stringify(data)))}
             }
             else{
-                console.log('b')
-                telega.MainButton.hide()
-                telega.MainButton.disable()
+                
+                WebApp.MainButton.hide()
+                WebApp.MainButton.disable()
             }
         },
+        onSendData(state)
+        {
+
+        }
     },
     actions:{
         add(ctx, prod)

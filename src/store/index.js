@@ -42,14 +42,19 @@ const store = createStore({
         {
             if(state.orderItems.length)
             {
-                WebApp.MainButton.show()
-                WebApp.MainButton.enable()
-                let data = 
+                //WebApp.MainButton.show()
+                //WebApp.MainButton.enable()
+                var MainButton = WebApp.MainButton;
+                MainButton.show();
+                MainButton.onClick(function() 
                 {
-                    items: state.orderItems
-                }
-                console.log(data)
-                WebApp.sendData(JSON.stringify(data))
+                    let data = 
+                    {
+                        items: state.orderItems
+                    }
+                    console.log(data)
+                    WebApp.sendData(JSON.stringify(data))
+                });
             }
             else{
                 

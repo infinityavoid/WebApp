@@ -78,7 +78,7 @@ const newFunc = () =>
 {
     let data = 
     {
-        items: store.orderItems
+        items: store.state.orderItems
     }
     console.log(data)
     WebApp.sendData(JSON.stringify(data))

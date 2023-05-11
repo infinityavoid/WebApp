@@ -74,7 +74,7 @@ const store = createStore({
         },
     }, 
 })
-const newFunc = () =>
+/*const newFunc = () =>
 {
     let data = 
     {
@@ -83,5 +83,5 @@ const newFunc = () =>
     console.log(data)
     WebApp.sendData(JSON.stringify(data))
 }
-WebApp.onEvent('mainButtonClicked', newFunc)
+WebApp.onEvent('mainButtonClicked', newFunc)*/
 export default store

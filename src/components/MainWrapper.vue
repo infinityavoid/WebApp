@@ -9,6 +9,7 @@
  
 
 <script>
+import { WebApp } from 'miku-web-app'
 import Products from '../components/ProductList.vue'
 export default {
   data(){
@@ -31,6 +32,11 @@ export default {
         return this.$store.getters.AllInfo
       },
     },  
+    mounted()
+    {
+      WebApp.onEvent('mainButtonClicked', function(){
+      WebApp.sendData("some string that we need to send"); })
+    }
 }
 
 </script>

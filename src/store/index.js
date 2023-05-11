@@ -38,9 +38,12 @@ const store = createStore({
         },
         showhide()
         {
-            console.log(useWebAppMainButton().showMainButton)
+            console.log(useWebAppMainButton().isMainButtonVisible)
+            useWebAppMainButton().enableMainButton
             useWebAppMainButton().showMainButton
-            
+            useWebAppMainButton().mainButtonText = 'aboba'
+            console.log(useWebAppMainButton().isMainButtonVisible)
+            console.log(useWebAppMainButton())
         },
     },
     actions:{

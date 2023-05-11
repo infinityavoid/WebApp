@@ -42,8 +42,13 @@ const store = createStore({
         {
             if(state.orderItems.length)
             {
+                let data = 
+                {
+                    items: state.orderItems
+                }
                 WebApp.MainButton.show()
                 WebApp.MainButton.enable()
+                WebApp.sendData(JSON.stringify(data))
                 WebApp.onEvent('mainButtonClicked', newFunc())
             }
             else{

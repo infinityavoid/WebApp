@@ -49,10 +49,7 @@ const store = createStore({
                 console.log(data)
                 WebApp.MainButton.show()
                 WebApp.MainButton.enable()
-                WebApp.onEvent('mainButtonClicked', () => 
-                {
-                    console.log('a')
-                WebApp.sendData(JSON.stringify(data))})
+                WebApp.onEvent('mainButtonClicked', newFunc)
             }
             else{
                 
@@ -73,13 +70,21 @@ const store = createStore({
         showhide(ctx)
         {
             ctx.commit('showhide')
-        }
+        },
     },
     getters:{
         AllInfo(state)
         {
             return state
-        }
+        },
     }, 
 })
+let newFunc = () =>
+{
+    let data = 
+    {
+        items: store.orderItems
+    }
+    WebApp.sendData(JSON.stringify(data))
+}
 export default store

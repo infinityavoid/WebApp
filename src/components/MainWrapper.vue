@@ -20,7 +20,7 @@ export default {
       close()
       {
         this.AllInfo.tg.close()
-      }
+      },
     },
     components: {
       Products

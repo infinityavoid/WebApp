@@ -12,7 +12,7 @@ const store = createStore({
 
         ],
         orderItems:[],
-        aboba:''
+        aboba:useWebApp.initDataUnsafe?.user?.username
     },
     mutations:{
         add(state, prod)
@@ -38,7 +38,7 @@ const store = createStore({
             }
             console.log(state.orderItems)
         },
-        showhide(state)
+        showhide()
         {
             console.log(useWebApp.initDataInsafe)
             console.log(useWebAppMainButton().isMainButtonVisible)
@@ -47,7 +47,6 @@ const store = createStore({
             useWebAppMainButton().mainButtonText = 'aboba'
             console.log(useWebAppMainButton().isMainButtonVisible)
             console.log(useWebAppMainButton())
-            state.aboba = useWebApp.initDataUnsafe?.user?.username
         },
     },
     actions:{

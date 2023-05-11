@@ -3,7 +3,7 @@ import { WebApp } from 'miku-web-app'
 
 let newFunc = () =>
 {
-    WebApp.MainButton.onClick(function() {
+    WebApp.onEvent('mainButtonClicked',function() {
         let data = 
         {
             items: store.state.orderItems

@@ -39,7 +39,10 @@ const store = createStore({
         },
         showhide()
         {
-            WebApp.MainButton.show
+            WebApp.MainButton.show()
+
+            WebApp.MainButton.enable()
+            console.log(WebApp.MainButton.show())
         },
     },
     actions:{

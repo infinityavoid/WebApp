@@ -1,6 +1,5 @@
 import { createStore } from "vuex"
-import {useWebAppMainButton} from 'vue-tg'
-import {useWebApp} from 'vue-tg'
+import { WebApp } from 'miku-web-app'
 const store = createStore({
     state:{
         tg: window.Telegram.WebApp,
@@ -12,7 +11,7 @@ const store = createStore({
 
         ],
         orderItems:[],
-        aboba:useWebApp.initDataUnsafe?.user?.username
+        aboba:WebApp.initDataUnsafe?.user?.username
     },
     mutations:{
         add(state, prod)
@@ -38,16 +37,9 @@ const store = createStore({
             }
             console.log(state.orderItems)
         },
-        showhide(state)
+        showhide()
         {
-            console.log(useWebApp.initDataInsafe)
-            console.log(useWebAppMainButton().isMainButtonVisible)
-            useWebAppMainButton().enableMainButton
-            useWebAppMainButton().showMainButton
-            useWebAppMainButton().mainButtonText = 'aboba'
-            console.log(useWebAppMainButton().isMainButtonVisible)
-            console.log(useWebAppMainButton())
-            console.log(state.aboba)
+            WebApp.MainButton.show
         },
     },
     actions:{

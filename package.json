@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "miku-web-app": "^6.4.0",
     "vue": "^3.2.13",
     "vue-tg": "^0.0.1",
     "vuex": "^4.1.0"

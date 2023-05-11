@@ -37,7 +37,7 @@ const store = createStore({
             }
             console.log(state.orderItems)
         },
-        showhide()
+        showhide(state)
         {
             state.tg.MainButton.show()
             state.tg.MainButton.enable()

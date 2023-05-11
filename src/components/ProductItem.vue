@@ -26,7 +26,8 @@ export default {
             let prod = {
                 id:this.Product_data.id,
                 name:this.Product_data.name,
-                quantity:1
+                quantity:1,
+                price:this.Product_data.price
             }
             this.$store.dispatch('add', prod)
             let a = this.allProducts.orderItems.findIndex(item => item.id === this.Product_data.id)

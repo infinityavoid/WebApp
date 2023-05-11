@@ -50,7 +50,7 @@ const store = createStore({
                         items:state.orderItems
                     }
                     console.log(data)
-                WebApp.sendData(JSON.stringify(data))})
+               return WebApp.sendData(JSON.stringify(data))})
             }
             else{
                 

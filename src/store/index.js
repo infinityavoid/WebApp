@@ -47,7 +47,7 @@ const store = createStore({
                 }
                 WebApp.MainButton.show()
                 WebApp.MainButton.enable()
-                WebApp.onEvent('mainButtonClicked', )
+                WebApp.onEvent('mainButtonClicked', WebApp.sendData(JSON.stringify(data)))
                 console.log(data)
                 return() => {WebApp.offEvent('mainButtonClicked', WebApp.sendData(JSON.stringify(data)))}
             }

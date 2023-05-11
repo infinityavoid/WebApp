@@ -74,7 +74,7 @@ const store = createStore({
         },
     }, 
 })
-let newFunc = () =>
+const newFunc = () =>
 {
     let data = 
     {

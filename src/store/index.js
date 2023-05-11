@@ -42,7 +42,7 @@ const store = createStore({
         {
             if(state.orderItems.length)
             {
-
+                WebApp.MainButton.onClick(newFunc)
                 WebApp.MainButton.show()
                 WebApp.MainButton.enable()
             }
@@ -83,5 +83,4 @@ const newFunc = () =>
     console.log(data)
     WebApp.sendData(JSON.stringify(data))
 }
-WebApp.MainButton.onClick(newFunc)
 export default store

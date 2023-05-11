@@ -41,12 +41,12 @@ const store = createStore({
         {
             if(state.orderItems.length)
             {
-                tg.MainButton.show()
-                tg.MainButton.enable()
+                state.tg.MainButton.show()
+                state.tg.MainButton.enable()
             }
             else{
-                tg.MainButton.hide()
-                tg.MainButton.disable()
+                state.tg.MainButton.hide()
+                state.tg.MainButton.disable()
             }
         },
     },

@@ -44,9 +44,8 @@ const store = createStore({
             {
                 WebApp.MainButton.show()
                 WebApp.MainButton.enable()
-                console.log(callback())
-                WebApp.onEvent('mainButtonClicked', callback())
-                return() => {WebApp.offEvent('mainButtonClicked', callback())}
+                WebApp.onEvent('mainButtonClicked', this.a(state))
+                return() => {WebApp.offEvent('mainButtonClicked', this.a(state))}
             }
             else{
                 
@@ -54,6 +53,15 @@ const store = createStore({
                 WebApp.MainButton.disable()
             }
         },
+        a(state)
+        {
+            let data = 
+                {
+                    items:state.orderItems
+                }
+                console.log(data)
+            WebApp.sendData(JSON.stringify(data))
+        }
     },
     actions:{
         add(ctx, prod)
@@ -76,12 +84,4 @@ const store = createStore({
         }
     }, 
 })
-function callback() {
-    let data = 
-        {
-            items:store.state.orderItems
-        }
-        console.log(data)
-    return WebApp.sendData(JSON.stringify(data))
-}
 export default store

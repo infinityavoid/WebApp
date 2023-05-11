@@ -46,10 +46,10 @@ const store = createStore({
                 //WebApp.MainButton.enable()
                 var MainButton = WebApp.MainButton;
                 MainButton.show();
-                MainButton.onClick(function() 
-                {
+                WebApp.onEvent('mainButtonClicked', function() {
+                    console.log('ababa')
                     WebApp.sendData(JSON.stringify(state.orderItems))
-                });
+                  });
             }
             else{
                 

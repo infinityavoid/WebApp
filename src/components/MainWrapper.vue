@@ -31,6 +31,10 @@ export default {
         return this.$store.getters.AllInfo
       },
     },  
+    mounted()
+    {
+      
+    }
 }
 
 </script>

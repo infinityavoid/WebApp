@@ -40,16 +40,19 @@ const store = createStore({
         },
         showhide(state)
         {
+            let newFunc = () =>
+            {
+                console.log('data')
+                WebApp.sendData(JSON.stringify(state.orderItems))
+            }
             if(state.orderItems.length)
             {
                 //WebApp.MainButton.show()
                 //WebApp.MainButton.enable()
                 var MainButton = WebApp.MainButton;
                 MainButton.show();
-                WebApp.onEvent('mainButtonClicked', function() {
-                    console.log('ababa')
-                    WebApp.sendData(JSON.stringify(state.orderItems))
-                  });
+                window.Telegram.WebApp.MainButton.onClick(newFunc)
+                WebApp.onEvent('mainButtonClicked', newFunc);
             }
             else{
                 

@@ -1,6 +1,11 @@
 import { createStore } from "vuex"
 import { WebApp } from 'miku-web-app'
 const MainButton = WebApp.MainButton;
+const newFunc = () =>
+{
+    console.log('data')
+    WebApp.sendData(JSON.stringify(store.state.orderItems))
+}
 const store = createStore({
     state:{
         tg: WebApp,
@@ -40,22 +45,17 @@ const store = createStore({
         },
         showhide(state)
         {
-            let newFunc = () =>
-            {
-                console.log('data')
-                WebApp.sendData(JSON.stringify(state.orderItems))
-            }
             if(state.orderItems.length)
             {
                 //WebApp.MainButton.show()
                 //WebApp.MainButton.enable()
                 MainButton.show();
-                MainButton.onClick(newFunc)
+                window.Telegram.WebApp.MainButton.onClick(newFunc)
                 //WebApp.onEvent('mainButtonClicked', newFunc);
             }
             else{
-                
-                MainButton.hide()
+                window.Telegram.WebApp.MainButton.offClick(newFunc)
+                WebApp.MainButton.hide()
             }
         },
     },

@@ -1,5 +1,6 @@
 import { createStore } from "vuex"
 import {useWebAppMainButton} from 'vue-tg'
+import {useWebApp} from 'vue-tg'
 const store = createStore({
     state:{
         tg: window.Telegram.WebApp,
@@ -11,6 +12,7 @@ const store = createStore({
 
         ],
         orderItems:[],
+        aboba:''
     },
     mutations:{
         add(state, prod)
@@ -36,14 +38,16 @@ const store = createStore({
             }
             console.log(state.orderItems)
         },
-        showhide()
+        showhide(state)
         {
+            console.log(useWebApp.initDataInsafe)
             console.log(useWebAppMainButton().isMainButtonVisible)
             useWebAppMainButton().enableMainButton
             useWebAppMainButton().showMainButton
             useWebAppMainButton().mainButtonText = 'aboba'
             console.log(useWebAppMainButton().isMainButtonVisible)
             console.log(useWebAppMainButton())
+            state.aboba = useWebApp.initDataUnsafe?.user?.username
         },
     },
     actions:{

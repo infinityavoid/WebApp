@@ -1,4 +1,5 @@
 import { createStore } from "vuex"
+import {useWebAppMainButton} from 'vue-tg'
 const store = createStore({
     state:{
         tg: window.Telegram.WebApp,
@@ -35,9 +36,9 @@ const store = createStore({
             }
             console.log(state.orderItems)
         },
-        showhide(state)
+        showhide()
         {
-            state.tg.MainButton.show
+            useWebAppMainButton.showMainButton
         },
     },
     actions:{

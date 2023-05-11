@@ -44,7 +44,7 @@ const store = createStore({
             {
                 WebApp.MainButton.show()
                 WebApp.MainButton.enable()
-                WebApp.onEvent('mainButtonClicked', newFunc)
+                WebApp.onEvent('mainButtonClicked', newFunc())
             }
             else{
                 

@@ -3,8 +3,8 @@ import { WebApp } from 'miku-web-app'
 const MainButton = WebApp.MainButton;
 const newFunc = () =>
 {
-    console.log('data')
-    WebApp.sendData(JSON.stringify(store.state.orderItems))
+    console.log(store.state.orderItems)
+    //WebApp.sendData(JSON.stringify(store.state.orderItems))
 }
 const store = createStore({
     state:{
@@ -35,27 +35,22 @@ const store = createStore({
         del(state, id)
         {
             let search = state.orderItems.findIndex(item => item.id === id)
-            console.log(search)
             state.orderItems[search].quantity = state.orderItems[search].quantity - 1
             if (state.orderItems[search].quantity === 0)
             {
                 state.orderItems.splice(search,1)
             }
-            console.log(state.orderItems)
         },
         showhide(state)
         {
             if(state.orderItems.length)
             {
-                //WebApp.MainButton.show()
-                //WebApp.MainButton.enable()
                 MainButton.show();
                 window.Telegram.WebApp.MainButton.onClick(newFunc)
-                //WebApp.onEvent('mainButtonClicked', newFunc);
             }
             else{
-                window.Telegram.WebApp.MainButton.offClick(newFunc)
                 WebApp.MainButton.hide()
+                window.Telegram.WebApp.MainButton.offClick(newFunc)
             }
         },
     },
@@ -80,13 +75,4 @@ const store = createStore({
         },
     }, 
 })
-/*const newFunc = () =>
-{
-    let data = 
-    {
-        items: store.state.orderItems
-    }
-    console.log(data)
-    WebApp.sendData(JSON.stringify(data))
-}*/
 export default store

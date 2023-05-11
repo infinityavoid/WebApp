@@ -1,5 +1,6 @@
 import { createStore } from "vuex"
 import { WebApp } from 'miku-web-app'
+
 const store = createStore({
     state:{
         tg: WebApp,
@@ -47,9 +48,9 @@ const store = createStore({
                 }
                 WebApp.MainButton.show()
                 WebApp.MainButton.enable()
-                WebApp.onEvent('mainButtonClicked', WebApp.sendData(JSON.stringify(data)))
+                WebApp.onEvent('mainButtonClicked', callback())
                 console.log(data)
-                return() => {WebApp.offEvent('mainButtonClicked', WebApp.sendData(JSON.stringify(data)))}
+                return() => {WebApp.offEvent('mainButtonClicked', callback())}
             }
             else{
                 
@@ -79,4 +80,11 @@ const store = createStore({
         }
     }, 
 })
+function callback() {
+    let data = 
+        {
+            items:store.state.orderItems
+        }
+    WebApp.sendData(JSON.stringify(data))
+}
 export default store

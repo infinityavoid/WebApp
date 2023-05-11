@@ -51,6 +51,7 @@ const store = createStore({
                 WebApp.MainButton.enable()
                 WebApp.onEvent('mainButtonClicked', () => 
                 {
+                    console.log('a')
                 WebApp.sendData(JSON.stringify(data))})
             }
             else{

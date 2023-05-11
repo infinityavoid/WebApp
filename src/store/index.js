@@ -38,7 +38,8 @@ const store = createStore({
         },
         showhide()
         {
-            useWebAppMainButton().showMainButton = true
+            console.log(useWebAppMainButton().showMainButton)
+            useWebAppMainButton().showMainButton
             
         },
     },

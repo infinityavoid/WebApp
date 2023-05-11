@@ -81,6 +81,6 @@ function callback() {
         {
             items:store.state.orderItems
         }
-    WebApp.sendData(JSON.stringify(data))
+    return WebApp.sendData(JSON.stringify(data))
 }
 export default store

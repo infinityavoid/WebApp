@@ -39,9 +39,11 @@ const store = createStore({
         },
         showhide()
         {
-            WebApp.MainButton.show()
+            state.tg.MainButton.show()
+            state.tg.MainButton.enable()
+            /*WebApp.MainButton.show()
 
-            WebApp.MainButton.enable()
+            WebApp.MainButton.enable()*/
             console.log(WebApp.MainButton.show())
         },
     },

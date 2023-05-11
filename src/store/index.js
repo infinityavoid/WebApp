@@ -1,7 +1,7 @@
 import { createStore } from "vuex"
 import { WebApp } from 'miku-web-app'
 
-const newFunc = () =>
+let newFunc = () =>
 {
     WebApp.MainButton.onClick(function() {
         let data = 

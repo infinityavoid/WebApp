@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <h3>Здравствуйте {{useWebApp.initDataUnsafe?.user?.username}}, что вы хотите заказать?</h3>
+    <h3>Здравствуйте {{AllInfo.aboba}}, что вы хотите заказать?</h3>
     <Products/>
     <button class="closeButton" @click="close">Закрой эту каку</button>
   </div>
@@ -10,7 +10,6 @@
 
 <script>
 import Products from '../components/ProductList.vue'
-import {useWebApp} from 'vue-tg'
 export default {
   data(){
         return {

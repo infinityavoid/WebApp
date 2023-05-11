@@ -2,7 +2,7 @@ import { createStore } from "vuex"
 import { WebApp } from 'miku-web-app'
 const store = createStore({
     state:{
-        tg: window.Telegram.WebApp,
+        tg: WebApp,
         Products:[
             {id:1,name:'q',price: 1000},
             {id:2,name:'w',price: 2000},
@@ -36,15 +36,6 @@ const store = createStore({
                 state.orderItems.splice(search,1)
             }
             console.log(state.orderItems)
-        },
-        showhide(state)
-        {
-            state.tg.MainButton.show()
-            state.tg.MainButton.enable()
-            /*WebApp.MainButton.show()
-
-            WebApp.MainButton.enable()*/
-            console.log(WebApp.MainButton.show())
         },
     },
     actions:{

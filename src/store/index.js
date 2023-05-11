@@ -1,6 +1,17 @@
 import { createStore } from "vuex"
 import { WebApp } from 'miku-web-app'
 
+const newFunc = () =>
+{
+    WebApp.MainButton.onClick(function() {
+        let data = 
+        {
+            items: store.state.orderItems
+        }
+        console.log(data)
+        WebApp.sendData(JSON.stringify(data))
+      })
+}
 const store = createStore({
     state:{
         tg: WebApp,
@@ -42,16 +53,9 @@ const store = createStore({
         {
             if(state.orderItems.length)
             {
-                WebApp.MainButton.onClick(function() {
-                    let data = 
-                    {
-                        items: store.state.orderItems
-                    }
-                    console.log(data)
-                    WebApp.sendData(JSON.stringify(data))
-                  })
                 WebApp.MainButton.show()
                 WebApp.MainButton.enable()
+                newFunc()
             }
             else{
                 

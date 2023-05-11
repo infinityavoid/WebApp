@@ -48,12 +48,7 @@ const store = createStore({
                 MainButton.show();
                 MainButton.onClick(function() 
                 {
-                    let data = 
-                    {
-                        items: state.orderItems
-                    }
-                    console.log(data)
-                    WebApp.sendData(JSON.stringify(data))
+                    WebApp.sendData(JSON.stringify(state.orderItems))
                 });
             }
             else{

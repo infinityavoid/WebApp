@@ -48,6 +48,7 @@ const store = createStore({
                 WebApp.MainButton.show()
                 WebApp.MainButton.enable()
                 WebApp.onEvent('mainButtonClicked', )
+                console.log(data)
                 return() => {WebApp.offEvent('mainButtonClicked', WebApp.sendData(JSON.stringify(data)))}
             }
             else{

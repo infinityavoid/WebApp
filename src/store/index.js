@@ -38,7 +38,7 @@ const store = createStore({
             }
             console.log(state.orderItems)
         },
-        showhide()
+        showhide(state)
         {
             console.log(useWebApp.initDataInsafe)
             console.log(useWebAppMainButton().isMainButtonVisible)
@@ -47,6 +47,7 @@ const store = createStore({
             useWebAppMainButton().mainButtonText = 'aboba'
             console.log(useWebAppMainButton().isMainButtonVisible)
             console.log(useWebAppMainButton())
+            console.log(state.aboba)
         },
     },
     actions:{

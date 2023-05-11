@@ -35,7 +35,7 @@ export default {
             }
             else{this.alreadyExists = true}
             this.quantity = this.allProducts.orderItems[a].quantity
-            
+            this.IsOrderCompleteted()
         },
         del()
         { 
@@ -50,13 +50,7 @@ export default {
         },
         IsOrderCompleteted()
         {
-            if (this.allProducts.orderItems.length)
-            {
-                this.allProducts.tg.MainButton.show()
-            }
-            else{
-                this.allProducts.tg.MainButton.hide()
-            }
+            this.$store.dispatch('showhide')
         }
     },
     computed:{

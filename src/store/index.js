@@ -37,6 +37,18 @@ const store = createStore({
             }
             console.log(state.orderItems)
         },
+        showhide(state)
+        {
+            if(state.orderItems.length)
+            {
+                tg.MainButton.show()
+                tg.MainButton.enable()
+            }
+            else{
+                tg.MainButton.hide()
+                tg.MainButton.disable()
+            }
+        },
     },
     actions:{
         add(ctx, prod)

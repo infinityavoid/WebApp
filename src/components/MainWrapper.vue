@@ -35,6 +35,7 @@ export default {
     mounted()
     {
       WebApp.onEvent('mainButtonClicked', function(){
+        console.log('a')
       WebApp.sendData("some string that we need to send"); })
     }
 }

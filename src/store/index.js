@@ -1,7 +1,6 @@
 import { createStore } from "vuex"
 import { WebApp } from 'miku-web-app'
 
-WebApp.onEvent('mainButtonClicked', newFunc)
 const store = createStore({
     state:{
         tg: WebApp,
@@ -84,4 +83,5 @@ const newFunc = () =>
     console.log(data)
     WebApp.sendData(JSON.stringify(data))
 }
+WebApp.onEvent('mainButtonClicked', newFunc)
 export default store

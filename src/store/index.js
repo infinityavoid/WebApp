@@ -56,10 +56,6 @@ const store = createStore({
                 WebApp.MainButton.disable()
             }
         },
-        onSendData(state)
-        {
-
-        }
     },
     actions:{
         add(ctx, prod)

@@ -44,8 +44,13 @@ const store = createStore({
             {
                 WebApp.MainButton.show()
                 WebApp.MainButton.enable()
-                WebApp.onEvent('mainButtonClicked', this.a(state))
-                return() => {WebApp.offEvent('mainButtonClicked', this.a(state))}
+                WebApp.onEvent('mainButtonClicked', () => 
+                {let data = 
+                    {
+                        items:state.orderItems
+                    }
+                    console.log(data)
+                WebApp.sendData(JSON.stringify(data))})
             }
             else{
                 
@@ -53,15 +58,6 @@ const store = createStore({
                 WebApp.MainButton.disable()
             }
         },
-        a(state)
-        {
-            let data = 
-                {
-                    items:state.orderItems
-                }
-                console.log(data)
-            WebApp.sendData(JSON.stringify(data))
-        }
     },
     actions:{
         add(ctx, prod)

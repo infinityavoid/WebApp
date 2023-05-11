@@ -83,5 +83,5 @@ const newFunc = () =>
     console.log(data)
     WebApp.sendData(JSON.stringify(data))
 }
-WebApp.onEvent('mainButtonClicked', newFunc)
+WebApp.MainButton.onClick(newFunc)
 export default store

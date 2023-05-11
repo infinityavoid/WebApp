@@ -85,6 +85,7 @@ let newFunc = () =>
     {
         items: store.orderItems
     }
+    console.log(data)
     WebApp.sendData(JSON.stringify(data))
 }
 export default store

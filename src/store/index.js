@@ -50,12 +50,12 @@ const store = createStore({
                 //WebApp.MainButton.show()
                 //WebApp.MainButton.enable()
                 MainButton.show();
-                window.Telegram.WebApp.MainButton.onClick(newFunc)
+                MainButton.onClick(newFunc)
                 //WebApp.onEvent('mainButtonClicked', newFunc);
             }
             else{
                 
-                WebApp.MainButton.hide()
+                MainButton.hide()
             }
         },
     },

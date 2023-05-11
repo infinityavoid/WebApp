@@ -25,6 +25,7 @@ export default {
         {
             let prod = {
                 id:this.Product_data.id,
+                name:this.Product_data.name,
                 quantity:1
             }
             this.$store.dispatch('add', prod)

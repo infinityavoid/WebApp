@@ -3,8 +3,8 @@ import { WebApp } from 'miku-web-app'
 const MainButton = WebApp.MainButton;
 const newFunc = () =>
 {
-    console.log(store.state.orderItems)
-    WebApp.sendData(JSON.stringify(store.state.orderItems))
+    console.log(JSON.stringify(store.state.orderItems))
+    //WebApp.sendData(JSON.stringify(store.state.orderItems))
 }
 const store = createStore({
     state:{

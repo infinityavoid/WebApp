@@ -1,6 +1,7 @@
 import { createStore } from "vuex"
 import { WebApp } from 'miku-web-app'
 const MainButton = WebApp.MainButton;
+const BackButton = WebApp.BackButton;
 const newFunc = () =>
 {
     if(store.state.PageNumber === 2)
@@ -13,9 +14,25 @@ const newFunc = () =>
     {
         store.state.PageNumber = 2 
         MainButton.text = 'Перейти к оплате'
+        BackButton.show()
+        BackButton.onClick(newFunc2)
     }
 
     //WebApp.sendData(JSON.stringify(store.state.orderItems))
+}
+const newFunc2 = () =>
+{
+    if(store.state.PageNumber === 2)
+    {
+        store.state.PageNumber = 1
+        BackButton.hide()
+        MainButton.text = 'Просмотреть заказ'
+    }
+    else
+    {
+        store.state.PageNumber = 2
+        MainButton.text = 'Перейти к оплате'
+    }
 }
 const store = createStore({
     state:{

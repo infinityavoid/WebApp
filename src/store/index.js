@@ -7,10 +7,12 @@ const newFunc = () =>
     {
         store.state.PageNumber = 3
         MainButton.hide()
+        MainButton.text = 'Перейти к оплате'
     }
     else
     {
         store.state.PageNumber = 2 
+        MainButton.text = 'Просмотреть заказ'
     }
 
     //WebApp.sendData(JSON.stringify(store.state.orderItems))
@@ -55,7 +57,7 @@ const store = createStore({
         {
             if(state.orderItems.length)
             {
-                MainButton.text = 'View Order'
+                MainButton.text = 'Просмотреть заказ'
                 MainButton.show();
                 window.Telegram.WebApp.MainButton.onClick(newFunc)
             }

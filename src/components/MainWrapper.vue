@@ -7,7 +7,7 @@
     </div>
     <div v-if="AllInfo.PageNumber === 2">
       <h3>Ваш заказ:</h3>
-      <div v-for="item in AllInfo.orderItems" class="orderList">
+      <div v-for="item in AllInfo.orderItems" :key = "item.id" class="orderList">
         <div>
           <label>{{item.name}}</label>
           <label>{{item.quantity}}</label>

@@ -56,9 +56,9 @@ export default {
 <style scoped>
 .orderList
 {
-  justify-content: space-around;
+  justify-content: space-between;
   display: flex;
-  
+  margin-left: 5px;
 }
 .closeButton
 {

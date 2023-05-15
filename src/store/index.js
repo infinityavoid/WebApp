@@ -3,8 +3,15 @@ import { WebApp } from 'miku-web-app'
 const MainButton = WebApp.MainButton;
 const newFunc = () =>
 {
-    store.state.PageNumber = 2
-    window.Telegram.WebApp.MainButton.onClick(()=>{store.state.PageNumber = 3})
+    if(store.state.PageNumber === 2)
+    {
+        store.state.PageNumber = 3
+    }
+    else
+    {
+        store.state.PageNumber = 2 
+    }
+
     //WebApp.sendData(JSON.stringify(store.state.orderItems))
 }
 const store = createStore({

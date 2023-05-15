@@ -56,7 +56,7 @@ export default {
 <style scoped>
 .orderList
 {
-  justify-content: space-between;
+  justify-content: space-around;
   display: flex;
   
 }

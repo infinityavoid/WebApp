@@ -6,7 +6,7 @@ const newFunc = () =>
 {
     if(store.state.PageNumber === 2)
     {
-        store.state.PageNumber = 3
+        WebApp.openInvoice()
         MainButton.hide()
         MainButton.text = 'Оплатить'
     }

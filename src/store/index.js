@@ -31,6 +31,7 @@ const newFunc2 = () =>
     else
     {
         store.state.PageNumber = 2
+        MainButton.show()
         MainButton.text = 'Перейти к оплате'
     }
 }

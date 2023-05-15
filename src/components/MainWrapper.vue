@@ -9,8 +9,7 @@
       <h3>Ваш заказ:</h3>
       <div v-for="item in AllInfo.orderItems" :key = "item.id" class="orderList">
         <div>
-          <label>{{item.name}}</label>
-          <label>{{item.quantity}}</label>
+          <label>{{item.name}} {{item.quantity}}x</label>
         </div>
         <label>{{item.price}}</label>
       </div>

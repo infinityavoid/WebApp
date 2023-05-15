@@ -45,6 +45,7 @@ const store = createStore({
         {
             if(state.orderItems.length)
             {
+                MainButton.text = 'View Order'
                 MainButton.show();
                 window.Telegram.WebApp.MainButton.onClick(newFunc)
             }

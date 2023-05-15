@@ -6,6 +6,7 @@ const newFunc = () =>
     if(store.state.PageNumber === 2)
     {
         store.state.PageNumber = 3
+        MainButton.hide()
     }
     else
     {

@@ -1,8 +1,23 @@
 <template>
   <div class="main">
-    <h3>Здравствуйте {{AllInfo.aboba}}, что вы хотите заказать?</h3>
-    <Products/>
-    <button class="closeButton" @click="close">Закрой эту каку</button>
+    <div v-if="AllInfo.PageNumber === 1">
+      <h3>Здравствуйте {{AllInfo.aboba}}, что вы хотите заказать?</h3>
+      <Products/>
+      <button class="closeButton" @click="close">Закрой эту каку</button>
+    </div>
+    <div v-if="AllInfo.PageNumber === 2">
+      <h3>Ваш заказ:</h3>
+      <div v-for="item in AllInfo.orderItems" class="orderList">
+        <div>
+          <label>{{item.name}}</label>
+          <label>{{item.quantity}}</label>
+        </div>
+        <label>{{item.price}}</label>
+      </div>
+    </div>
+    <div v-if="AllInfo.PageNumber === 3">
+      <label for="">В разработке</label>
+    </div>
   </div>
 </template>
 
@@ -40,6 +55,12 @@ export default {
 </script>
 
 <style scoped>
+.orderList
+{
+  justify-content: space-between;
+  display: flex;
+  
+}
 .closeButton
 {
  color: var(--tg-theme-button-color);

@@ -3,8 +3,8 @@ import { WebApp } from 'miku-web-app'
 const MainButton = WebApp.MainButton;
 const newFunc = () =>
 {
-    console.log(JSON.stringify(store.state.orderItems))
-    WebApp.sendData(JSON.stringify(store.state.orderItems))
+    store.state.PageNumber = 2
+    //WebApp.sendData(JSON.stringify(store.state.orderItems))
 }
 const store = createStore({
     state:{
@@ -17,7 +17,8 @@ const store = createStore({
 
         ],
         orderItems:[],
-        aboba:window.Telegram.WebApp.initDataUnsafe?.user?.username
+        aboba:window.Telegram.WebApp.initDataUnsafe?.user?.username,
+        PageNumber:1
     },
     mutations:{
         add(state, prod)

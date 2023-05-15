@@ -7,12 +7,12 @@ const newFunc = () =>
     {
         store.state.PageNumber = 3
         MainButton.hide()
-        MainButton.text = 'Перейти к оплате'
+        MainButton.text = 'Оплатить'
     }
     else
     {
         store.state.PageNumber = 2 
-        MainButton.text = 'Просмотреть заказ'
+        MainButton.text = 'Перейти к оплате'
     }
 
     //WebApp.sendData(JSON.stringify(store.state.orderItems))

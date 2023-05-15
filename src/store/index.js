@@ -4,6 +4,7 @@ const MainButton = WebApp.MainButton;
 const newFunc = () =>
 {
     store.state.PageNumber = 2
+    window.Telegram.WebApp.MainButton.onClick(()=>{store.state.PageNumber = 3})
     //WebApp.sendData(JSON.stringify(store.state.orderItems))
 }
 const store = createStore({

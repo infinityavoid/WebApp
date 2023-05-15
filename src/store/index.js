@@ -17,7 +17,7 @@ const store = createStore({
 
         ],
         orderItems:[],
-        aboba:WebApp.initDataUnsafe?.user?.username
+        aboba:window.Telegram.WebApp.initDataUnsafe?.user?.username
     },
     mutations:{
         add(state, prod)

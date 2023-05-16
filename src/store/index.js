@@ -7,7 +7,9 @@ const newFunc = async () =>
 {
     if(store.state.PageNumber === 2)
     {
-        await axios({method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {WebApp.openInvoice(res)})
+        await axios({method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {
+        console.log(res)    
+        WebApp.openInvoice(res)})
     }
     else
     {

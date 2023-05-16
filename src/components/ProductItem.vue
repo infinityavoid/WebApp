@@ -63,6 +63,12 @@ export default {
 }
 .addButton
 {
-    color: var(--tg-theme-bg-color);
+    padding: 10px 20px;
+    border: none;
+    background: rgb(248, 168, 24);
+    border-radius: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 </style>

@@ -15,8 +15,6 @@
 export default {
     data(){
         return {
-            quantity:'',
-            alreadyExists:false,
         } 
     },
     props:{Product_data:Object},

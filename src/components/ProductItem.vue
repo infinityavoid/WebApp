@@ -63,8 +63,6 @@ export default {
 }
 .addButton
 {
-    display: inline-block;
-    padding: 10px 20px;
     border: none;
     background: rgb(248, 168, 24);
     border-radius: 10px;

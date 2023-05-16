@@ -34,13 +34,7 @@ export default {
         },
         del()
         { 
-            let a = this.allProducts.orderItems.findIndex(item => item.id === this.Product_data.id)
             this.$store.dispatch('del', this.Product_data.id)
-            try
-            {
-                this.quantity = this.allProducts.orderItems[a].quantity 
-            }
-            catch(e){this.alreadyExists = false}
             this.IsOrderCompleteted()
         },
         IsOrderCompleteted()

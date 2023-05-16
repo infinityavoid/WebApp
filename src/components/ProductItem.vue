@@ -63,6 +63,7 @@ export default {
 }
 .addButton
 {
+    padding: 10px;
     border: none;
     background: rgb(248, 168, 24);
     border-radius: 10px;

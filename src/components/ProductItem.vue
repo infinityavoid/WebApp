@@ -30,13 +30,6 @@ export default {
                 price:this.Product_data.price
             }
             this.$store.dispatch('add', prod)
-            let a = this.allProducts.orderItems.findIndex(item => item.id === this.Product_data.id)
-            if(a === -1)
-            {
-                this.alreadyExists = false
-            }
-            else{this.alreadyExists = true}
-            this.quantity = this.allProducts.orderItems[a].quantity
             this.IsOrderCompleteted()
         },
         del()

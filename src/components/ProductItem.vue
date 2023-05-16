@@ -96,8 +96,8 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     margin-bottom: 10px;
     box-shadow: 0 0 8px 0 #e0e0e0;
     border: 1px solid var(--tg-theme-button-color);

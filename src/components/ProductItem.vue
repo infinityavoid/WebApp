@@ -2,7 +2,7 @@
     <div class="item">
         <label>{{Product_data.name}}</label>
         <label>{{Product_data.price}}р</label>
-        <div v-if="alreadyExists === true">
+        <div v-if="allProducts.orderItems.findIndex(item => item.id === Product_data.id) != -1">
             <button @click="del()">-</button>
             <label >{{ quantity }}</label>
             <button @click="add()">+</button>

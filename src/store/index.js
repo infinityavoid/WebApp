@@ -1,14 +1,13 @@
 import { createStore } from "vuex"
 import { WebApp } from 'miku-web-app'
+import axios from 'axios';
 const MainButton = WebApp.MainButton;
 const BackButton = WebApp.BackButton;
-const newFunc = () =>
+const newFunc = async () =>
 {
     if(store.state.PageNumber === 2)
     {
-        WebApp.openInvoice()
-        MainButton.hide()
-        MainButton.text = 'Оплатить'
+        await axios({method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {WebApp.openInvoice(res)})
     }
     else
     {
@@ -17,7 +16,6 @@ const newFunc = () =>
         BackButton.show()
         window.Telegram.WebApp.BackButton.onClick(newFunc2)
     }
-
     //WebApp.sendData(JSON.stringify(store.state.orderItems))
 }
 const newFunc2 = () =>
@@ -47,7 +45,8 @@ const store = createStore({
         ],
         orderItems:[],
         aboba:window.Telegram.WebApp.initDataUnsafe?.user?.username,
-        PageNumber:1
+        PageNumber:1,
+        query_id:window.Telegram.WebApp.initDataUnsafe?.query_id
     },
     mutations:{
         add(state, prod)

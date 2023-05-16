@@ -4,7 +4,7 @@
         <label>{{Product_data.price}}р</label>
         <div v-if="allProducts.orderItems.findIndex(item => item.id === Product_data.id) != -1">
             <button @click="del()" class="minusButton">-</button>
-            <label >{{ allProducts.orderItems[allProducts.orderItems.findIndex(item => item.id === Product_data.id)].quantity }}</label>
+            <label class="quantityLabel">{{ allProducts.orderItems[allProducts.orderItems.findIndex(item => item.id === Product_data.id)].quantity }}</label>
             <button @click="add()" class="plusButton">+</button>
         </div>
         <button v-else @click="add()" class="addButton">Добавить</button>
@@ -49,6 +49,11 @@ export default {
 </script>
 
 <style scoped>
+.quantityLabel
+{
+    padding-left: 5px;
+    padding-right: 5px;
+}
 .minusButton
 {
     pointer-events: auto;

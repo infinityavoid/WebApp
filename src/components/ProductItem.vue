@@ -49,11 +49,6 @@ export default {
 </script>
 
 <style scoped>
-.quantityLabel
-{
-    padding-left: 5px;
-    padding-right: 5px;
-}
 .minusButton
 {
     pointer-events: auto;
@@ -110,12 +105,13 @@ export default {
 }
 .addButton
 {
-    padding: 10px;
     border: none;
     background: rgb(248, 168, 24);
     border-radius: 10px;
     color: #fff;
     text-transform: uppercase;
     font-weight: 700;
+    height: 30px;
+    cursor: pointer;
 }
 </style>

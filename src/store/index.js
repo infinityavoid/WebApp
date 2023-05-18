@@ -7,7 +7,7 @@ const newFunc = async () =>
 {
     if(store.state.PageNumber === 2)
     {
-        await axios({method:"POST",url:"https://qwe-r14c.onrender.com//createInvoice",data:store.state.orderItems}).then(res => {
+        await axios({method:"POST",url:"https://qwe-r14c.onrender.com/createInvoice",data:store.state.orderItems}).then(res => {
         console.log(res)    
         WebApp.openInvoice(res.data.result)}).then(res => 
             {

@@ -45,9 +45,9 @@ const store = createStore({
     state:{
         tg: WebApp,
         Products:[
-            {id:1,name:'Бургир',price: 1000},
-            {id:2,name:'Пица',price: 2000},
-            {id:3,name:'Мет',price: 3000},
+            {id:1,name:'Пепперони',price: 550},
+            {id:2,name:'Чикита',price: 550},
+            {id:3,name:'Бонито Hot',price: 530},
 
 
         ],

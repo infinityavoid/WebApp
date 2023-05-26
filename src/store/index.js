@@ -10,7 +10,7 @@ const newFunc = async () =>
         await axios(
             {
                 method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {
-                WebApp.openInvoice(res.data.result, (status) => {console.log(status)})
+                WebApp.openInvoice(res.data.result)
             })
             window.Telegram.WebApp.onEvent('invoiceClosed', newFunc3 );
     }

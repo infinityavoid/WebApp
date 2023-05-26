@@ -7,14 +7,7 @@ const newFunc = async () =>
 {
     if(store.state.PageNumber === 2)
     {
-        WebApp.onEvent('invoiceClosed', function(object) 
-                {
-                    console.log('a')
-                    if (object.status == 'pending' || object.status == 'paid') 
-                    {
-                        window.Telegram.WebApp.close();
-                    }
-                });
+        WebApp.onEvent('invoiceClosed', newFunc3() );
         await axios(
             {
                 method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {
@@ -45,6 +38,15 @@ const newFunc2 = () =>
         MainButton.text = 'Перейти к оплате'
     }
 }
+const newFunc3 = (object) =>
+{
+    console.log('a')
+    if (object.status == 'pending' || object.status == 'paid') 
+    {
+        window.Telegram.WebApp.close();
+    }
+}
+
 const store = createStore({
     state:{
         tg: WebApp,

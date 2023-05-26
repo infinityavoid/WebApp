@@ -7,11 +7,7 @@ const newFunc = async () =>
 {
     if(store.state.PageNumber === 2)
     {
-        await axios(
-            {
-                method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {
-                WebApp.openInvoice(res.data.result)
-                window.Telegram.WebApp.onEvent('invoiceClosed', function(object) 
+        window.Telegram.WebApp.onEvent('invoiceClosed', function(object) 
                 {
                     console.log('a')
                     if (object.status == 'pending' || object.status == 'paid') 
@@ -19,6 +15,10 @@ const newFunc = async () =>
                         window.Telegram.WebApp.close();
                     }
                 });
+        await axios(
+            {
+                method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {
+                WebApp.openInvoice(res.data.result)
             })
     }
     else

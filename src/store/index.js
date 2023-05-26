@@ -41,7 +41,7 @@ const newFunc2 = () =>
 const newFunc3 = (object) =>
 {
     console.log('a')
-    if (object.status == 'pending' || object.status == 'paid') 
+    if (object?.status == 'pending' || object?.status == 'paid') 
     {
         window.Telegram.WebApp.close();
     }

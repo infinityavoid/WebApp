@@ -11,6 +11,7 @@ const newFunc = async () =>
         console.log(res)    
         WebApp.openInvoice(res.data.result)})
         window.Telegram.WebApp.onEvent('invoiceClosed', function(object) {
+            console.log(object)
             if (object.status == 'paid') {
                 console.log('a')
               WebApp.close();

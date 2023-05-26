@@ -12,8 +12,10 @@ const newFunc = async () =>
         WebApp.openInvoice(res.data.result)})
         window.Telegram.WebApp.onEvent('invoiceClosed', function(object) {
             if (object.status == 'paid') {
+                console.log('a')
               WebApp.close();
             } else if (object.status == 'failed') {
+                console.log('b')
               WebApp.showAlert("Не беспокойтесь. Мы сохраним ваш выбор.");
             }
           });

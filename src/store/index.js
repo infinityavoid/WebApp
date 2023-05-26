@@ -19,6 +19,13 @@ const newFunc = async () =>
     }
     else
     {
+        WebApp.onEvent('invoiceClosed', function(object) {
+            if (object.status == 'paid') {
+              WebApp.close();
+            } else if (object.status == 'failed') {
+              WebApp.showAlert("Не беспокойтесь. Мы сохраним ваш выбор.");
+            }
+          });
         store.state.PageNumber = 2 
         MainButton.text = 'Перейти к оплате'
         BackButton.show()

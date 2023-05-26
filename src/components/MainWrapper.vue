@@ -25,13 +25,6 @@ export default {
         return {
         } 
     },
-    methods:
-    {
-      close()
-      {
-        this.AllInfo.tg.close()
-      },
-    },
     components: {
       Products
     },

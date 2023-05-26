@@ -3,22 +3,16 @@ import { WebApp } from 'miku-web-app'
 import axios from 'axios';
 const MainButton = WebApp.MainButton;
 const BackButton = WebApp.BackButton;
-let query = ''
 const newFunc = async () =>
 {
     if(store.state.PageNumber === 2)
     {
-
         await axios(
             {
-                
-                method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => { query = res.data.result })
-                WebApp.openInvoice(query).then(res => {                    
-                    if (res.status === "paid")
-                    {
-                        store.state.tg.close()
-                    }
-                })
+                method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {
+                WebApp.openInvoice(res.data.result, (status) => {console.log(status)})
+            })
+            window.Telegram.WebApp.onEvent('invoiceClosed', newFunc3() );
     }
     else
     {
@@ -42,6 +36,14 @@ const newFunc2 = () =>
         store.state.PageNumber = 2
         MainButton.show()
         MainButton.text = 'Перейти к оплате'
+    }
+}
+const newFunc3 = (object) =>
+{
+    console.log(object)
+    if (object?.status == 'pending' || object?.status == 'paid') 
+    {
+        window.Telegram.WebApp.close();
     }
 }
 

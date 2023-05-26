@@ -10,7 +10,7 @@ const newFunc = async () =>
         await axios({method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {
         console.log(res)    
         WebApp.openInvoice(res.data.result)})
-        WebApp.onEvent('invoiceClosed', function(object) {
+        window.Telegram.WebApp.onEvent('invoiceClosed', function(object) {
             if (object.status == 'paid') {
               WebApp.close();
             } else if (object.status == 'failed') {

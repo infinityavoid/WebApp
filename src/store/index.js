@@ -12,7 +12,7 @@ const newFunc = async () =>
                 method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {
                 WebApp.openInvoice(res.data.result)
             })
-            window.Telegram.WebApp.onEvent('invoiceClosed', newFunc3 );
+            WebApp.onEvent('invoiceClosed', newFunc3() );
     }
     else
     {
@@ -40,7 +40,7 @@ const newFunc2 = () =>
 }
 const newFunc3 = (object) =>
 {
-    console.log(object)
+    console.log('a')
     if (object?.status == 'pending' || object?.status == 'paid') 
     {
         window.Telegram.WebApp.close();

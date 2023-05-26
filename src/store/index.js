@@ -8,14 +8,13 @@ const newFunc = async () =>
     if(store.state.PageNumber === 2)
     {
         await axios({method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {
-        console.log(res)    
         WebApp.openInvoice(res.data.result)})
-        window.Telegram.WebApp.onEvent('invoiceClosed', function(object) {
-            console.log(object)
-            if (object.status == 'paid') {
+        WebApp.onEvent('invoiceClosed', (res) => {
+            console.log(res)
+            if (res.status == 'paid') {
                 console.log('a')
               WebApp.close();
-            } else if (object.status == 'failed') {
+            } else if (res.status == 'failed') {
                 console.log('b')
               WebApp.showAlert("Не беспокойтесь. Мы сохраним ваш выбор.");
             }

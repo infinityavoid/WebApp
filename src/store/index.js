@@ -7,13 +7,12 @@ const newFunc = async () =>
 {
     if(store.state.PageNumber === 2)
     {
-        WebApp.onEvent('invoiceClosed',(object) => {console.log(object)} )
-        await axios({method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {
-        console.log(res)    
+        await axios({method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {  
         WebApp.openInvoice(res.data.result,(status) =>
         {
             console.log(status)
         })
+        WebApp.onEvent('invoiceClosed',(object) => {console.log(object)} )
     })
     }
     else

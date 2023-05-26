@@ -13,10 +13,8 @@ const newFunc = async () =>
             {
                 
                 method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => { query = res.data.result })
-                WebApp.openInvoice(query, (object) => 
-                {
-                    console.log(object)
-                    if (object.status === "paid")
+                WebApp.openInvoice(query).then(res => {                    
+                    if (res.status === "paid")
                     {
                         store.state.tg.close()
                     }

@@ -3,7 +3,6 @@
     <div class="inner" v-if="AllInfo.PageNumber === 1">
       <h3>Здравствуйте {{AllInfo.aboba}}, что вы хотите заказать?</h3>
       <Products/>
-      <button class="closeButton" @click="close">Закрой эту каку</button>
     </div>
     <div v-if="AllInfo.PageNumber === 2">
       <h3>Ваш заказ:</h3>

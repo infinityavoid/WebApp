@@ -11,21 +11,17 @@ const newFunc = async () =>
         console.log(res)    
         WebApp.openInvoice(res.data.result)}).then(result => 
             {
-                if(result.status == 'paid')
-                {
-                    store.state.tg.close()
-                }
+                WebApp.onEvent('invoiceClosed', function(object) {
+                    if (object.status == 'paid') {
+                      WebApp.close();
+                    } else if (object.status == 'failed') {
+                      WebApp.showAlert("Не беспокойтесь. Мы сохраним ваш выбор.");
+                    }
+                  });
             })
     }
     else
     {
-        WebApp.onEvent('invoiceClosed', function(object) {
-            if (object.status == 'paid') {
-              WebApp.close();
-            } else if (object.status == 'failed') {
-              WebApp.showAlert("Не беспокойтесь. Мы сохраним ваш выбор.");
-            }
-          });
         store.state.PageNumber = 2 
         MainButton.text = 'Перейти к оплате'
         BackButton.show()

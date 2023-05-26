@@ -7,15 +7,14 @@ const newFunc = async () =>
 {
     if(store.state.PageNumber === 2)
     {
-        await axios(
+        await axios({method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {
+        console.log(res)    
+        WebApp.openInvoice(res.data.result)}).then(res => 
             {
-                method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {
-                WebApp.openInvoice(res.data.result, (status) => {
-                    console.log('a')
-                    if(status.status === 'paid')
-            {
-                console.log('a')
-            }})
+                if(res.status == 'paid')
+                {
+                    store.state.tg.close()
+                }
             })
     }
     else
@@ -42,7 +41,6 @@ const newFunc2 = () =>
         MainButton.text = 'Перейти к оплате'
     }
 }
-
 const store = createStore({
     state:{
         tg: WebApp,

@@ -7,7 +7,7 @@ const newFunc = async () =>
 {
     if(store.state.PageNumber === 2)
     {
-        window.Telegram.WebApp.onEvent('invoiceClosed', function(object) 
+        WebApp.onEvent('invoiceClosed', function(object) 
                 {
                     console.log('a')
                     if (object.status == 'pending' || object.status == 'paid') 

@@ -11,6 +11,7 @@ const newFunc = async () =>
         console.log(res)    
         WebApp.openInvoice(res.data.result)}).then(res => 
             {
+                console.log(res)
                 if(res.status == 'paid')
                 {
                     store.state.tg.close()

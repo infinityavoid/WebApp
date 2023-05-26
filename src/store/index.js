@@ -3,23 +3,23 @@ import { WebApp } from 'miku-web-app'
 import axios from 'axios';
 const MainButton = WebApp.MainButton;
 const BackButton = WebApp.BackButton;
+let query = ''
 const newFunc = async () =>
 {
     if(store.state.PageNumber === 2)
     {
+
         await axios(
             {
-                method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {
-                WebApp.openInvoice(res.data.result, (object) => 
+                
+                method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => { query = res.data.result })
+                WebApp.openInvoice(query, (object) => 
                 {
-                    console.log('a')
-                    console.log(object)
                     if (object.status === "paid")
                     {
                         store.state.tg.close()
                     }
                 })
-            })
     }
     else
     {

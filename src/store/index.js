@@ -9,7 +9,7 @@ const newFunc = async () =>
     {
         await axios({method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {
         WebApp.openInvoice(res.data.result)
-        window.Telegram.WebApp.onEvent('invoiceClosed',newFunc3)})
+        WebApp.onEvent('invoiceClosed',newFunc3)})
     }
     else
     {

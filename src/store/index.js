@@ -40,6 +40,10 @@ const newFunc2 = () =>
         MainButton.text = 'Перейти к оплате'
     }
 }
+const newFunc3 = () =>
+{
+    store.state.PageNumber = 1
+}
 const store = createStore({
     state:{
         tg: WebApp,
@@ -87,13 +91,16 @@ const store = createStore({
                 window.Telegram.WebApp.MainButton.onClick(newFunc)
             }
             else{
-                WebApp.MainButton.hide()
+                MainButton.hide()
                 window.Telegram.WebApp.MainButton.offClick(newFunc)
             }
         },
         showdetail(state)
         {
             state.PageNumber = 3
+            BackButton.show()
+            window.Telegram.WebApp.BackButton.onClick(newFunc3)
+
         }
     },
     actions:{

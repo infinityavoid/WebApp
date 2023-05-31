@@ -22,14 +22,15 @@ export default {
     methods:{
         add()
         {
-            let prod = {
+            /*let prod = {
                 id:this.Product_data.id,
                 name:this.Product_data.name,
                 quantity:1,
                 price:this.Product_data.price
             }
             this.$store.dispatch('add', prod)
-            this.IsOrderCompleteted()
+            this.IsOrderCompleteted()*/
+            this.$router.push('/Detail')
         },
         del()
         { 

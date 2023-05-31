@@ -30,7 +30,8 @@ export default {
             }
             this.$store.dispatch('add', prod)
             this.IsOrderCompleteted()*/
-            this.$router.push('/Detail')
+            //this.$router.push('/Detail')
+            this.$store.dispatch('showdetail')
         },
         del()
         { 

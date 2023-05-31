@@ -18,6 +18,9 @@
         <label>{{item.price}}</label>
       </div>
     </div>
+    <div v-if="AllInfo.PageNumber === 3">
+      
+    </div>
   </div>
 </template>
 

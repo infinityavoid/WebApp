@@ -54,7 +54,7 @@ const store = createStore({
         aboba:window.Telegram.WebApp.initDataUnsafe?.user?.username,
         PageNumber:1,
         query_id:window.Telegram.WebApp.initDataUnsafe?.query_id,
-        resp:resp
+        resp:resp,
     },
     mutations:{
         add(state, prod)
@@ -91,6 +91,10 @@ const store = createStore({
                 window.Telegram.WebApp.MainButton.offClick(newFunc)
             }
         },
+        showdetail(state)
+        {
+            state.PageNumber = 3
+        }
     },
     actions:{
         add(ctx, prod)
@@ -105,6 +109,10 @@ const store = createStore({
         {
             ctx.commit('showhide')
         },
+        showdetail(ctx)
+        {
+            ctx.commit('showdetail')
+        }
     },
     getters:{
         AllInfo(state)

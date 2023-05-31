@@ -2,7 +2,7 @@
     <div class="item">
         <label>{{Product_data.name}}</label>
         <label>{{Product_data.price}}р</label>
-        <img :src="Product_data.image" alt="Img">
+        <img v-if="Product_data.image" :src="Product_data.image" alt="Img">
         <div v-if="allProducts.orderItems.findIndex(item => item.id === Product_data.id) != -1">
             <button @click="del()" class="minusButton">-</button>
             <label class="quantityLabel">{{ allProducts.orderItems[allProducts.orderItems.findIndex(item => item.id === Product_data.id)].quantity }}</label>

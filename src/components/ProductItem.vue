@@ -103,7 +103,6 @@ export default {
     height: 200px;
     margin-bottom: 10px;
     box-shadow: 0 0 8px 0 #e0e0e0;
-    border: 1px solid var(--tg-theme-button-color);
     padding: 15px;
 }
 .addButton

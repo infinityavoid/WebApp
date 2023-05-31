@@ -1,6 +1,7 @@
 import { createStore } from "vuex"
 import { WebApp } from 'miku-web-app'
 import axios from 'axios';
+import resp from '@/store/response.json'
 const MainButton = WebApp.MainButton;
 const BackButton = WebApp.BackButton;
 const newFunc = async () =>
@@ -52,7 +53,8 @@ const store = createStore({
         orderItems:[],
         aboba:window.Telegram.WebApp.initDataUnsafe?.user?.username,
         PageNumber:1,
-        query_id:window.Telegram.WebApp.initDataUnsafe?.query_id
+        query_id:window.Telegram.WebApp.initDataUnsafe?.query_id,
+        resp:resp
     },
     mutations:{
         add(state, prod)

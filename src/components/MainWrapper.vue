@@ -2,8 +2,13 @@
   <div class="main">
     <div class="inner" v-if="AllInfo.PageNumber === 1">
       <h3>Здравствуйте {{AllInfo.aboba}}, что вы хотите заказать?</h3>
-      <Products/>
+      <Products v-for="category in AllInfo.resp"
+      :name = "category.name"
+      :key = "category.id"
+      :products = "category.products"
+      />
     </div>
+    <button @click="add()" class="plusButton">+</button>
     <div v-if="AllInfo.PageNumber === 2">
       <h3>Ваш заказ:</h3>
       <div v-for="item in AllInfo.orderItems" :key = "item.id" class="orderList">
@@ -27,6 +32,12 @@ export default {
     },
     components: {
       Products
+    },
+    methods:{
+      add()
+      {
+        console.log(this.AllInfo.resp)
+      }
     },
     computed:{
       AllInfo()

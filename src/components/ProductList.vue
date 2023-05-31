@@ -1,10 +1,13 @@
 <template>
-  <div class="PList">
-    <Product v-for="item in allProducts.Products"
-    :Product_data = "item"
-    :key = "item.id"
-    >
-    </Product>
+  <div>
+    <h3>{{name}}</h3>
+    <div class="PList">
+      <Product v-for="item in products"
+      :Product_data = "item"
+      :key = "item.id"
+      >
+      </Product>
+    </div>
   </div>
 </template>
   
@@ -18,6 +21,7 @@ export default {
     components: { 
       Product
   },
+  props:{name:String,products:Object},
   computed:{
     allProducts(){
       return this.$store.getters.AllInfo  

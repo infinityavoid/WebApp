@@ -2,6 +2,7 @@
     <div class="item">
         <label>{{Product_data.name}}</label>
         <label>{{Product_data.price}}р</label>
+        <img :src="Product_data.image" alt="Img">
         <div v-if="allProducts.orderItems.findIndex(item => item.id === Product_data.id) != -1">
             <button @click="del()" class="minusButton">-</button>
             <label class="quantityLabel">{{ allProducts.orderItems[allProducts.orderItems.findIndex(item => item.id === Product_data.id)].quantity }}</label>
@@ -97,7 +98,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     width: 100px;
-    height: 100px;
+    height: 200px;
     margin-bottom: 10px;
     box-shadow: 0 0 8px 0 #e0e0e0;
     border: 1px solid var(--tg-theme-button-color);

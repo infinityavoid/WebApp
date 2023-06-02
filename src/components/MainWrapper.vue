@@ -43,6 +43,7 @@ export default {
       add()
       {
         this.$store.dispatch('add', this.AllInfo.selectedItem)
+        this.$store.dispatch('showhide')
       }
     },
     computed:{

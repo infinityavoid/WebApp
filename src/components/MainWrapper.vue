@@ -8,18 +8,19 @@
       :products = "category.products"
       />
     </div>
-    <button @click="add()" class="plusButton">+</button>
     <div v-if="AllInfo.PageNumber === 2">
       <h3>Ваш заказ:</h3>
       <div v-for="item in AllInfo.orderItems" :key = "item.id" class="orderList">
         <div>
-          <label>{{item.name}} {{item.quantity}}x</label>
+          <label>{{item.name}} x{{item.quantity}}</label>
         </div>
         <label>{{item.price}}</label>
       </div>
     </div>
     <div v-if="AllInfo.PageNumber === 3">
+      <img v-if="AllInfo.selectedItem.image" :src="AllInfo.selectedItem.image" alt="Img">
       <h3>{{AllInfo.selectedItem.name}}</h3>
+
       <button
       @click="add()"
       />

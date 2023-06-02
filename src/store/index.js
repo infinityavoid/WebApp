@@ -62,6 +62,7 @@ const store = createStore({
     mutations:{
         add(state, prod)
         {
+            console.log(state.selectedItem.price)
             let search = state.orderItems.findIndex(item => item.id === prod.id)
             if(search === -1)
             {
@@ -108,17 +109,21 @@ const store = createStore({
         {
             let search = state.resp.findIndex(item => item.ymlId === info.categoryId)
             let search2 = state.resp[search].products.findIndex(item => item.id === info.productId)
+            console.log(info.size)
             if(info.size === 1)
             {
                 state.selectedItem.price = state.resp[search].products[search2].price - 210
+                console.log(state.resp[search].products[search2].price - 210)
             }
             if(info.size === 2)
             {
                 state.selectedItem.price = state.resp[search].products[search2].price
+                console.log(state.resp[search].products[search2].price)
             }
             if(info.size === 3)
             {
                 state.selectedItem.price = state.resp[search].products[search2].price + 290
+                console.log(state.resp[search].products[search2].price + 290)
             }
         }
     },

@@ -33,7 +33,7 @@ const newFunc2 = () =>
         console.log('a')
         store.state.PageNumber = 1
         BackButton.hide()
-        MainButton.text = 'Просмотреть заказ' + store.state.orderItems.length
+        MainButton.text = `Просмотреть заказ (${state.orderItems.length})`
     }
     else
     {
@@ -85,7 +85,7 @@ const store = createStore({
             state.selectedItem = ''
             state.PageNumber = 1
             BackButton.hide()
-            MainButton.text = 'Просмотреть заказ' + ' ' + state.orderItems.length
+            MainButton.text = `Просмотреть заказ (${state.orderItems.length})` 
         },
         del(state, id)
         {
@@ -100,7 +100,7 @@ const store = createStore({
         {
             if(state.orderItems.length)
             {
-                MainButton.text = 'Просмотреть заказ'
+                MainButton.text = `Просмотреть заказ (${state.orderItems.length})`
                 MainButton.show();
                 window.Telegram.WebApp.MainButton.onClick(newFunc)
             }

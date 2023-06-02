@@ -19,7 +19,7 @@
       </div>
     </div>
     <div v-if="AllInfo.PageNumber === 3">
-      <img v-if="AllInfo.selectedItem.image" :src="AllInfo.selectedItem.image" alt="Img">
+      <img v-if="AllInfo.selectedItem.image" :src="AllInfo.selectedItem.image" width="100" height="100" alt="Img">
       <h3>{{AllInfo.selectedItem.name}}</h3>
       <div v-if="AllInfo.selectedItem.categoryId === 5">
         <input type="radio" id="option1" @click="sizeChange(1)" name="options" >
@@ -28,11 +28,10 @@
         <label for="option2">30см</label>
         <input type="radio" id="option3" @click="sizeChange(3)" name="options" >
         <label for="option3">40см</label>
-        <label >{{pizzaSize}}</label>
       </div>
-      <button
+      <button style="width: 100%;"
       @click="add()"
-      />
+      >Добавить в корзину</button>
     </div>
   </div>
 </template>

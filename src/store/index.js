@@ -21,6 +21,7 @@ const newFunc = async () =>
         store.state.PageNumber = 2 
         MainButton.text = 'Перейти к оплате'
         BackButton.show()
+        window.Telegram.WebApp.BackButton.offClick(newFunc3)
         window.Telegram.WebApp.BackButton.onClick(newFunc2)
     }
     //WebApp.sendData(JSON.stringify(store.state.orderItems))

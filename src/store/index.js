@@ -73,6 +73,7 @@ const store = createStore({
             }
             state.selectedItem = ''
             state.PageNumber = 1
+            BackButton.hide()
         },
         del(state, id)
         {

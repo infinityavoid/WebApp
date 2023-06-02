@@ -19,7 +19,10 @@
       </div>
     </div>
     <div v-if="AllInfo.PageNumber === 3">
-      
+      <h3>{{AllInfo.selectedItem.name}}</h3>
+      <button
+      @click="add()"
+      />
     </div>
   </div>
 </template>
@@ -39,7 +42,7 @@ export default {
     methods:{
       add()
       {
-        console.log(this.AllInfo.resp)
+        this.$store.dispatch('add', this.AllInfo.selectedItem)
       }
     },
     computed:{

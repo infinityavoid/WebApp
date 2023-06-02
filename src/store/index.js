@@ -48,18 +48,12 @@ const newFunc3 = () =>
 const store = createStore({
     state:{
         tg: WebApp,
-        Products:[
-            {id:1,name:'Пепперони',price: 550},
-            {id:2,name:'Чикита',price: 550},
-            {id:3,name:'Бонито Hot',price: 530},
-
-
-        ],
         orderItems:[],
         aboba:window.Telegram.WebApp.initDataUnsafe?.user?.username,
         PageNumber:1,
         query_id:window.Telegram.WebApp.initDataUnsafe?.query_id,
         resp:resp,
+        selectedItem:''
     },
     mutations:{
         add(state, prod)
@@ -73,6 +67,8 @@ const store = createStore({
             {
                 state.orderItems[search].quantity++
             }
+            state.selectedItem = ''
+            state.PageNumber = 1
         },
         del(state, id)
         {
@@ -96,13 +92,13 @@ const store = createStore({
                 window.Telegram.WebApp.MainButton.offClick(newFunc)
             }
         },
-        showdetail(state)
+        showdetail(state, prod)
         {
+            state.selectedItem = prod
             state.PageNumber = 3
             BackButton.show()
             window.Telegram.WebApp.BackButton.onClick(newFunc3)
-
-        }
+        },
     },
     actions:{
         add(ctx, prod)
@@ -117,10 +113,14 @@ const store = createStore({
         {
             ctx.commit('showhide')
         },
-        showdetail(ctx)
+        showdetail(ctx, prod)
         {
-            ctx.commit('showdetail')
-        }
+            ctx.commit('showdetail', prod)
+        },
+        /*addToBakset(ctx, prod)
+        {
+            ctx.commit('addToBakset', prod)
+        }*/
     },
     getters:{
         AllInfo(state)

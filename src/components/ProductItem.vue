@@ -3,12 +3,7 @@
         <label>{{Product_data.name}}</label>
         <label>{{Product_data.price}}р</label>
         <img v-if="Product_data.image" :src="Product_data.image" alt="Img">
-        <div v-if="allProducts.orderItems.findIndex(item => item.id === Product_data.id) != -1">
-            <button @click="del()" class="minusButton">-</button>
-            <label class="quantityLabel">{{ allProducts.orderItems[allProducts.orderItems.findIndex(item => item.id === Product_data.id)].quantity }}</label>
-            <button @click="add()" class="plusButton">+</button>
-        </div>
-        <button v-else @click="add()" class="addButton">Добавить</button>
+        <button @click="add()" class="addButton">Добавить</button>
     </div>
 </template>
 
@@ -22,16 +17,17 @@ export default {
     methods:{
         add()
         {
-            /*let prod = {
+            let prod = {
                 id:this.Product_data.id,
                 name:this.Product_data.name,
-                quantity:1,
-                price:this.Product_data.price
+                price:this.Product_data.price,
+                image:this.Product_data.image,
+                quantity:1
             }
-            this.$store.dispatch('add', prod)
-            this.IsOrderCompleteted()*/
-            //this.$router.push('/Detail')
-            this.$store.dispatch('showdetail')
+            /*this.$store.dispatch('add', prod)
+            this.IsOrderCompleteted()
+            //this.$router.push('/Detail')*/
+            this.$store.dispatch('showdetail', prod)
         },
         del()
         { 

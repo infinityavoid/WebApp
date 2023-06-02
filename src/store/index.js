@@ -33,7 +33,7 @@ const newFunc2 = () =>
         console.log('a')
         store.state.PageNumber = 1
         BackButton.hide()
-        MainButton.text = 'Просмотреть заказ'
+        MainButton.text = 'Просмотреть заказ' + store.state.orderItems.length
     }
     else
     {

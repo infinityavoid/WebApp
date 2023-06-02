@@ -13,6 +13,7 @@
       <h3>Ваш заказ:</h3>
       <div v-for="item in AllInfo.orderItems" :key = "item.id" class="orderList">
         <div>
+          <img v-if="item.image" :src="item.image" width="100" height="100" alt="Img">
           <label>{{item.name}} x{{item.quantity}}</label>
         </div>
         <label>{{item.price}}</label>

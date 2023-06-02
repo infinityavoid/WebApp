@@ -48,7 +48,7 @@ const newFunc3 = () =>
     console.log('c')
     store.state.PageNumber = 1
     BackButton.hide()
-    if(store.state.orderItems)
+    if(store.state.orderItems.length)
     {
         MainButton.show()
     }

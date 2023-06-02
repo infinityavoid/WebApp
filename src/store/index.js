@@ -104,9 +104,22 @@ const store = createStore({
             BackButton.show()
             window.Telegram.WebApp.BackButton.onClick(newFunc3)
         },
-        sizeChange(state, newPrice)
+        sizeChange(state, info)
         {
-            state.selectedItem.price = newPrice
+            let search = state.resp.findIndex(item => item.ymlId === info.categoryId)
+            let search2 = state.resp[search].products.findIndex(item => item.id === info.productId)
+            if(info.size === 1)
+            {
+                state.selectedItem.price = state.resp[search].products[search2].price - 210
+            }
+            if(info.size === 2)
+            {
+                state.selectedItem.price = state.resp[search].products[search2].price
+            }
+            if(info.size === 3)
+            {
+                state.selectedItem.price = state.resp[search].products[search2].price + 290
+            }
         }
     },
     actions:{
@@ -126,9 +139,9 @@ const store = createStore({
         {
             ctx.commit('showdetail', prod)
         },
-        sizeChange(ctx, newPrice)
+        sizeChange(ctx, info)
         {
-            ctx.commit('sizeChange',newPrice)
+            ctx.commit('sizeChange',info)
         }
     },
     getters:{

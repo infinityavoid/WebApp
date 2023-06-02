@@ -85,6 +85,7 @@ const store = createStore({
             state.selectedItem = ''
             state.PageNumber = 1
             BackButton.hide()
+            MainButton.text = 'Просмотреть заказ' + store.state.orderItems.length
         },
         del(state, id)
         {

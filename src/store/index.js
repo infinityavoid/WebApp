@@ -29,12 +29,14 @@ const newFunc2 = () =>
 {
     if(store.state.PageNumber === 2)
     {
+        console.log('a')
         store.state.PageNumber = 1
         BackButton.hide()
         MainButton.text = 'Просмотреть заказ'
     }
     else
     {
+        console.log('b')
         store.state.PageNumber = 2
         MainButton.show()
         MainButton.text = 'Перейти к оплате'
@@ -42,6 +44,7 @@ const newFunc2 = () =>
 }
 const newFunc3 = () =>
 {
+    console.log('c')
     store.state.PageNumber = 1
     BackButton.hide()
 }

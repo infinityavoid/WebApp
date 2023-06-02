@@ -24,9 +24,9 @@
       <div v-if="AllInfo.selectedItem.categoryId === 5">
         <input type="radio" id="option1" @click="sizeChange()" value=290 name="options" checked v-model="pizzaSize">
         <label for="option1">30см</label>
-        <input type="radio" id="option2" value=500 name="options" v-model="pizzaSize">
+        <input type="radio" id="option2" @click="sizeChange()" value=500 name="options" v-model="pizzaSize">
         <label for="option2">40см</label>
-        <input type="radio" id="option3" value=790 name="options" v-model="pizzaSize">
+        <input type="radio" id="option3" @click="sizeChange()" value=790 name="options" v-model="pizzaSize">
         <label for="option3">50см</label>
         <label >{{pizzaSize}}</label>
       </div>

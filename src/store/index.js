@@ -109,23 +109,24 @@ const store = createStore({
             state.selectedItem = prod
             state.PageNumber = 3
             BackButton.show()
+            MainButton.hide()
             window.Telegram.WebApp.BackButton.onClick(newFunc3)
         },
         sizeChange(state, info) //поиск товара в json, чтобы узнать его дефолтную цену(дефолтная цена = 2 размер пиццы, т.е 30см)
         {
-            let search = state.resp.findIndex(item => item.ymlId === info.categoryId)
-            let search2 = state.resp[search].products.findIndex(item => item.id === info.productId)
+            //let search = state.resp.findIndex(item => item.ymlId === info.categoryId)
+            //let search2 = state.resp[search].products.findIndex(item => item.id === info.productId)
             if(info.size === 1)
             {
-                state.selectedItem.price = state.resp[search].products[search2].price - 210
+                state.selectedItem.price = state.resp[info.categoryId].products[info.productId].price - 210
             }
             if(info.size === 2)
             {
-                state.selectedItem.price = state.resp[search].products[search2].price
+                state.selectedItem.price = state.resp[info.categoryId].products[info.productId].price
             }
             if(info.size === 3)
             {
-                state.selectedItem.price = state.resp[search].products[search2].price + 290
+                state.selectedItem.price = state.resp[info.categoryId].products[info.productId].price + 290
             }
             state.selectedItem.size = info.size
         }

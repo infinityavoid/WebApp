@@ -29,6 +29,11 @@
         <input type="radio" id="option3" @click="sizeChange(3)" name="options" >
         <label for="option3">40см</label>
       </div>
+      <label>{{AllInfo.selectedItem.composition.reduce((acc, curr) => 
+      {
+        return acc + curr.name + ", ";
+      }, "").slice(0, -2)}}
+      </label>
       <button style="width: 100%; position: absolute; left: 0; bottom: 0;"
       @click="add()"
       >Добавить в корзину</button>
@@ -51,6 +56,7 @@ export default {
     methods:{
       add()
       {
+        
         this.$store.dispatch('add', this.AllInfo.selectedItem)
         this.$store.dispatch('showhide')
       },

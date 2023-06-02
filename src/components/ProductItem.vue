@@ -24,6 +24,7 @@ export default {
                 image:this.Product_data.image,
                 quantity:1,
                 categoryId:this.categoryId,
+                composition:this.Product_data.composition,
                 size:this.isPizza()
             }
             /*this.$store.dispatch('add', prod)

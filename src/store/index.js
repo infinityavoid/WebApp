@@ -104,6 +104,10 @@ const store = createStore({
             BackButton.show()
             window.Telegram.WebApp.BackButton.onClick(newFunc3)
         },
+        sizeChange(state, newPrice)
+        {
+            state.selectedItem.price = newPrice
+        }
     },
     actions:{
         add(ctx, prod)
@@ -122,10 +126,10 @@ const store = createStore({
         {
             ctx.commit('showdetail', prod)
         },
-        /*addToBakset(ctx, prod)
+        sizeChange(ctx, newPrice)
         {
-            ctx.commit('addToBakset', prod)
-        }*/
+            ctx.commit('sizeChange',newPrice)
+        }
     },
     getters:{
         AllInfo(state)

@@ -13,7 +13,7 @@ export default {
         return {
         } 
     },
-    props:{Product_data:Object},
+    props:{Product_data:Object,categoryId:Number},
     methods:{
         add()
         {
@@ -22,7 +22,8 @@ export default {
                 name:this.Product_data.name,
                 price:this.Product_data.price,
                 image:this.Product_data.image,
-                quantity:1
+                quantity:1,
+                categoryId:this.categoryId
             }
             /*this.$store.dispatch('add', prod)
             this.IsOrderCompleteted()

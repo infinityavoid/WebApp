@@ -5,6 +5,7 @@
       <Product v-for="item in products"
       :Product_data = "item"
       :key = "item.id"
+      :categoryId = "categoryId"
       >
       </Product>
     </div>
@@ -21,7 +22,7 @@ export default {
     components: { 
       Product
   },
-  props:{name:String,products:Object},
+  props:{name:String,categoryId:Number,products:Object},
   computed:{
     allProducts(){
       return this.$store.getters.AllInfo  

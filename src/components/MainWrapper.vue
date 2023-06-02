@@ -5,6 +5,7 @@
       <Products v-for="category in AllInfo.resp"
       :name = "category.name"
       :key = "category.id"
+      :categoryId = "category.ymlId"
       :products = "category.products"
       />
     </div>
@@ -20,7 +21,15 @@
     <div v-if="AllInfo.PageNumber === 3">
       <img v-if="AllInfo.selectedItem.image" :src="AllInfo.selectedItem.image" alt="Img">
       <h3>{{AllInfo.selectedItem.name}}</h3>
-
+      <div v-if="AllInfo.selectedItem.categoryId === 5">
+        <input type="radio" id="option1" @click="sizeChange()" value=290 name="options" checked v-model="pizzaSize">
+        <label for="option1">30см</label>
+        <input type="radio" id="option2" value=500 name="options" v-model="pizzaSize">
+        <label for="option2">40см</label>
+        <input type="radio" id="option3" value=790 name="options" v-model="pizzaSize">
+        <label for="option3">50см</label>
+        <label >{{pizzaSize}}</label>
+      </div>
       <button
       @click="add()"
       />
@@ -35,6 +44,7 @@ import Products from '../components/ProductList.vue'
 export default {
   data(){
         return {
+          pizzaSize:290
         } 
     },
     components: {
@@ -45,6 +55,10 @@ export default {
       {
         this.$store.dispatch('add', this.AllInfo.selectedItem)
         this.$store.dispatch('showhide')
+      },
+      sizeChange()
+      {
+        this.$store.dispatch('sizeChange',this.pizzaSize)
       }
     },
     computed:{

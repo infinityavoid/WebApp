@@ -48,6 +48,7 @@ const newFunc3 = () =>
     console.log('c')
     store.state.PageNumber = 1
     BackButton.hide()
+    MainButton.show()
 }
 const store = createStore({
     state:{

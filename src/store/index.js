@@ -62,7 +62,6 @@ const store = createStore({
     mutations:{
         add(state, prod)
         {
-            console.log(state.selectedItem.price)
             let search = state.orderItems.findIndex(item => item.id === prod.id)
             if(search === -1)
             {
@@ -70,7 +69,14 @@ const store = createStore({
             }
             else
             {
-                state.orderItems[search].quantity++
+                if(state.orderItems.findIndex(item => item.id === prod.id && item.size === prod.size) != -1)
+                {
+                    state.orderItems[search].quantity++
+                }
+                else
+                {
+                    state.orderItems.push(prod)
+                }
             }
             state.selectedItem = ''
             state.PageNumber = 1
@@ -105,26 +111,23 @@ const store = createStore({
             BackButton.show()
             window.Telegram.WebApp.BackButton.onClick(newFunc3)
         },
-        sizeChange(state, info)
+        sizeChange(state, info) //поиск товара в json, чтобы узнать его дефолтную цену(дефолтная цена = 2 размер пиццы, т.е 30см)
         {
             let search = state.resp.findIndex(item => item.ymlId === info.categoryId)
             let search2 = state.resp[search].products.findIndex(item => item.id === info.productId)
-            console.log(info.size)
             if(info.size === 1)
             {
                 state.selectedItem.price = state.resp[search].products[search2].price - 210
-                console.log(state.resp[search].products[search2].price - 210)
             }
             if(info.size === 2)
             {
                 state.selectedItem.price = state.resp[search].products[search2].price
-                console.log(state.resp[search].products[search2].price)
             }
             if(info.size === 3)
             {
                 state.selectedItem.price = state.resp[search].products[search2].price + 290
-                console.log(state.resp[search].products[search2].price + 290)
             }
+            state.selectedItem.size = info.size
         }
     },
     actions:{

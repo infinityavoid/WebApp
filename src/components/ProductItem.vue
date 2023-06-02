@@ -23,7 +23,8 @@ export default {
                 price:this.Product_data.price,
                 image:this.Product_data.image,
                 quantity:1,
-                categoryId:this.categoryId
+                categoryId:this.categoryId,
+                size:this.isPizza()
             }
             /*this.$store.dispatch('add', prod)
             this.IsOrderCompleteted()
@@ -38,6 +39,14 @@ export default {
         IsOrderCompleteted()
         {
             this.$store.dispatch('showhide')
+        },
+        isPizza()
+        {
+            if(this.categoryId === 5)
+            {
+                return 2
+            }
+            else return 0
         }
     },
     computed:{

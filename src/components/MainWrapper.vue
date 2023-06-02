@@ -29,7 +29,7 @@
         <input type="radio" id="option3" @click="sizeChange(3)" name="options" >
         <label for="option3">40см</label>
       </div>
-      <button style="width: 100%;"
+      <button style="width: 100%; position: absolute; left: 0; bottom: 0;"
       @click="add()"
       >Добавить в корзину</button>
     </div>

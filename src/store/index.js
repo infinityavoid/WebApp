@@ -140,6 +140,8 @@ const store = createStore({
                 if(!state.orderItems.length)
                 {
                     state.PageNumber = 1
+                    BackButton.hide()
+                    MainButton.hide()
                 }
             }
             else

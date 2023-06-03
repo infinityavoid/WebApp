@@ -9,14 +9,17 @@
       :products = "category.products"
       />
     </div>
-    <div v-if="AllInfo.PageNumber === 2">
+    <div>
       <h3>Ваш заказ:</h3>
       <div v-for="item in AllInfo.orderItems" :key = "item.id" class="orderList">
-        <div>
+        <div style="display: flex; justify-content: space-between;">
           <img v-if="item.image" :src="item.image" width="100" height="100" alt="Img">
-          <label>{{item.name}} x{{item.quantity}}</label>
+          <div style="display: flex;flex-direction: column; justify-content: flex-start;">
+            <h5>{{item.name}}</h5>
+            <h5>{{item.price}}</h5>
+          </div>
         </div>
-        <label>{{item.price}}</label>
+        <label>{{item.quantity}}</label>
       </div>
     </div>
     <div v-if="AllInfo.PageNumber === 3">
@@ -89,9 +92,10 @@ export default {
 <style scoped>
 .orderList
 {
-  justify-content: space-between;
+  align-items: center;
   display: flex;
   margin-left: 5px;
+  justify-content: space-between;
 }
 .closeButton
 {

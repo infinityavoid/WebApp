@@ -87,15 +87,6 @@ const store = createStore({
             BackButton.hide()
             MainButton.text = `Просмотреть заказ (${state.orderItems.length})` 
         },
-        del(state, id)
-        {
-            let search = state.orderItems.findIndex(item => item.id === id)
-            state.orderItems[search].quantity = state.orderItems[search].quantity - 1
-            if (state.orderItems[search].quantity === 0)
-            {
-                state.orderItems.splice(search,1)
-            }
-        },
         showhide(state)
         {
             if(state.orderItems.length)
@@ -134,16 +125,23 @@ const store = createStore({
                 state.selectedItem.price = state.resp[info.categoryId].products[info.productId].price + 290
             }
             state.selectedItem.size = info.size
+        },
+        inc(state,id)
+        {
+            state.orderItems[id].quantity++
+        },
+        dec(state,id)
+        {
+            if(state.orderItems[id].quantity === 1)
+            {
+                state.orderItems.splice(id,1)
+            }
         }
     },
     actions:{
         add(ctx, prod)
         {
             ctx.commit('add', prod)
-        },
-        del(ctx, id)
-        {
-            ctx.commit('del', id)
         },
         showhide(ctx)
         {
@@ -156,6 +154,14 @@ const store = createStore({
         sizeChange(ctx, info)
         {
             ctx.commit('sizeChange',info)
+        },
+        inc(ctx,id)
+        {
+            ctx.commit('inc',id)
+        },
+        dec(ctx,id)
+        {
+            ctx.commit('dec',id)
         }
     },
     getters:{

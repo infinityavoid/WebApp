@@ -15,11 +15,13 @@
         <div style="display: flex; justify-content: space-between;">
           <img v-if="item.image" :src="item.image" width="100" height="100" alt="Img">
           <div style="display: flex;flex-direction: column; justify-content: flex-start;">
-            <h5>{{item.name}}</h5>
-            <h5>{{item.price}}</h5>
+            <h4>{{item.name}}</h4>
+            <label>{{item.price}}₽</label>
           </div>
         </div>
+        <button @click="add()">Добавить в корзину</button>
         <label>{{item.quantity}}</label>
+        <button @click="add()">Добавить в корзину</button>
       </div>
     </div>
     <div v-if="AllInfo.PageNumber === 3">
@@ -92,10 +94,9 @@ export default {
 <style scoped>
 .orderList
 {
-  align-items: center;
+  justify-content: space-between;
   display: flex;
   margin-left: 5px;
-  justify-content: space-between;
 }
 .closeButton
 {

@@ -32,15 +32,6 @@ export default {
             //this.$router.push('/Detail')*/
             this.$store.dispatch('showdetail', prod)
         },
-        del()
-        { 
-            this.$store.dispatch('del', this.Product_data.id)
-            this.IsOrderCompleteted()
-        },
-        IsOrderCompleteted()
-        {
-            this.$store.dispatch('showhide')
-        },
         isPizza()
         {
             if(this.categoryId === 5)

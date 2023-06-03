@@ -19,9 +19,9 @@
             <label>{{item.price}}₽</label>
           </div>
         </div>
-        <button @click="add()">Добавить в корзину</button>
+        <button @click="inc(item.id)">-</button>
         <label>{{item.quantity}}</label>
-        <button @click="add()">Добавить в корзину</button>
+        <button @click="dec(item.id)">+</button>
       </div>
     </div>
     <div v-if="AllInfo.PageNumber === 3">
@@ -65,6 +65,14 @@ export default {
         
         this.$store.dispatch('add', this.AllInfo.selectedItem)
         this.$store.dispatch('showhide')
+      },
+      inc(id)
+      {
+        this.$store.dispatch('inc',id)
+      },
+      dec(id)
+      {
+        this.$store.dispatch('dec',id)
       },
       sizeChange(value)
       {

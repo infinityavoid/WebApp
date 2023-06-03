@@ -104,6 +104,7 @@ export default {
 <style scoped>
 .orderList
 {
+  align-items: center;
   justify-content: space-between;
   display: flex;
   margin-left: 5px;

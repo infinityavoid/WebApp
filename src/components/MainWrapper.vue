@@ -9,7 +9,7 @@
       :products = "category.products"
       />
     </div>
-    <div>
+    <div v-if="AllInfo.PageNumber === 2">
       <h3>Ваш заказ:</h3>
       <div v-for="item in AllInfo.orderItems" :key = "item.id" class="orderList">
         <div style="display: flex; justify-content: space-between;">

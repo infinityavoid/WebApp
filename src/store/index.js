@@ -128,13 +128,23 @@ const store = createStore({
         },
         inc(state,id)
         {
-            state.orderItems[id].quantity++
+            let search = state.orderItems.findIndex(item => item.id === id)
+            state.orderItems[search].quantity++
         },
         dec(state,id)
         {
-            if(state.orderItems[id].quantity === 1)
+            let search = state.orderItems.findIndex(item => item.id === id)
+            if(state.orderItems[search].quantity === 1)
             {
                 state.orderItems.splice(id,1)
+                if(!state.orderItems.length)
+                {
+                    state.PageNumber = 1
+                }
+            }
+            else
+            {
+                state.orderItems[search].quantity--
             }
         }
     },

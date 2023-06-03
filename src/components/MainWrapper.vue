@@ -19,9 +19,9 @@
             <label>{{item.price}}₽</label>
           </div>
         </div>
-        <button @click="inc(item.id)">-</button>
+        <button @click="dec(item.id)">-</button>
         <label>{{item.quantity}}</label>
-        <button @click="dec(item.id)">+</button>
+        <button @click="inc(item.id)">+</button>
       </div>
     </div>
     <div v-if="AllInfo.PageNumber === 3">

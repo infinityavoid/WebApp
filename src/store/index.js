@@ -8,7 +8,7 @@ const newFunc = async () =>
 {
     if(store.state.PageNumber === 2)
     {
-        await axios({method:"POST",url:"http://localhost:8000/createInvoice",data:store.state.orderItems}).then(res => {  
+        await axios({method:"POST",url:"http://localhost:8000/createInvoice",data:mergeBasket(store.state.orderItems,store.state.addictions)}).then(res => {  
         WebApp.openInvoice(res.data.result,(status) => // тоже не работает
         {
             console.log(status)
@@ -53,15 +53,40 @@ const newFunc3 = () =>
         MainButton.show()
     }
 }
+const mergeAddictions = (firstAddictions, secondAddictions) =>
+{
+    const mergedAddictions = [...firstAddictions]; 
+    secondAddictions.forEach(addiction => {
+      const matchedIndex = mergedAddictions.findIndex(a => a.id === addiction.id);
+      if (matchedIndex >= 0) {
+        mergedAddictions[matchedIndex].quantity += addiction.quantity;
+      } else {
+        mergedAddictions.push(addiction);
+      }
+    });
+    
+    return mergedAddictions;
+}
+const mergeBasket = (Items,Addictions) =>
+{
+    if(Addictions.length)
+    {
+        const resultArray = [...Items, ...Addictions];
+        return resultArray
+    }
+    else return Items
+}
 const store = createStore({
     state:{
         tg: WebApp,
         orderItems:[],
-        aboba:window.Telegram.WebApp.initDataUnsafe?.user?.username,
+        username:window.Telegram.WebApp.initDataUnsafe?.user?.username,
         PageNumber:1,
         query_id:window.Telegram.WebApp.initDataUnsafe?.query_id,
         resp:resp,
-        selectedItem:''
+        selectedItem:'',
+        addictions:[],
+        selectedItemAddictions:[]
     },
     mutations:{
         add(state, prod)
@@ -82,6 +107,8 @@ const store = createStore({
                     state.orderItems.push(prod)
                 }
             }
+            state.addictions = mergeAddictions(state.addictions,state.selectedItemAddictions)
+            state.selectedItemAddictions = []
             state.selectedItem = ''
             state.PageNumber = 1
             BackButton.hide()
@@ -110,19 +137,19 @@ const store = createStore({
         },
         sizeChange(state, info) //поиск товара в json, чтобы узнать его дефолтную цену(дефолтная цена = 2 размер пиццы, т.е 30см)
         {
-            //let search = state.resp.findIndex(item => item.ymlId === info.categoryId)
-            //let search2 = state.resp[search].products.findIndex(item => item.id === info.productId)
+            let search = state.resp.findIndex(item => item.ymlId === info.categoryId)
+            let search2 = state.resp[search].products.findIndex(item => item.id === info.productId)
             if(info.size === 1)
             {
-                state.selectedItem.price = state.resp[info.categoryId].products[info.productId].price - 210
+                state.selectedItem.price = state.resp[search].products[search2].price - 210
             }
             if(info.size === 2)
             {
-                state.selectedItem.price = state.resp[info.categoryId].products[info.productId].price
+                state.selectedItem.price = state.resp[search].products[search2].price
             }
             if(info.size === 3)
             {
-                state.selectedItem.price = state.resp[info.categoryId].products[info.productId].price + 290
+                state.selectedItem.price = state.resp[search].products[search2].price + 290
             }
             state.selectedItem.size = info.size
         },
@@ -148,7 +175,55 @@ const store = createStore({
             {
                 state.orderItems[search].quantity--
             }
-        }
+        },
+        incAddiction(state, prod)
+        {
+            let search = state.addictions.findIndex(item => item.id === prod.id)
+            if(search === -1)
+            {
+                state.addictions.push(prod)
+            }
+            else
+            {
+                state.addictions[search].quantity++
+            }
+        },
+        decAddiction(state,id)
+        {
+            let search = state.addictions.findIndex(item => item.id === id)
+            if(state.addictions[search].quantity === 1)
+            {
+                state.addictions.splice(id,1)
+            }
+            else
+            {
+                state.addictions[search].quantity--
+            }
+        },
+        incSelectedItemAddictions(state, prod)
+        {
+            let search = state.selectedItemAddictions.findIndex(item => item.id === prod.id)
+            if(search === -1)
+            {
+                state.selectedItemAddictions.push(prod)
+            }
+            else
+            {
+                state.selectedItemAddictions[search].quantity++
+            }
+        },
+        decSelectedItemAddictions(state,id)
+        {
+            let search = state.selectedItemAddictions.findIndex(item => item.id === id)
+            if(state.selectedItemAddictions[search].quantity === 1)
+            {
+                state.selectedItemAddictions.splice(id,1)
+            }
+            else
+            {
+                state.selectedItemAddictions[search].quantity--
+            }
+        },
     },
     actions:{
         add(ctx, prod)
@@ -174,7 +249,23 @@ const store = createStore({
         dec(ctx,id)
         {
             ctx.commit('dec',id)
-        }
+        },
+        incAddiction(ctx, prod)
+        {
+            ctx.commit('incAddiction', prod)
+        },
+        decAddiction(ctx, id)
+        {
+            ctx.commit('decAddiction', id)
+        },
+        incSelectedItemAddictions(ctx, prod)
+        {
+            ctx.commit('incSelectedItemAddictions', prod)
+        },
+        decSelectedItemAddictions(ctx, id)
+        {
+            ctx.commit('decSelectedItemAddictions', id)
+        },
     },
     getters:{
         AllInfo(state)

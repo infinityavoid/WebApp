@@ -72,7 +72,7 @@
           <button @click="incSelectedItemAddictions(item2)">+</button>
         </div>
       </div>
-      <button style="width: 100%; position: absolute; left: 0; bottom: 0;"
+      <button style="width: 100%;"
       @click="add()"
       >Добавить в корзину</button>
     </div>

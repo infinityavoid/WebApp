@@ -121,6 +121,7 @@ export default {
         let prod = 
         {
           id:item2.id,
+          name:item2.name,
           price:item2.price,
           quantity:1
         } 
@@ -135,6 +136,7 @@ export default {
         let prod = 
         {
           id:item2.id,
+          name:item2.name,
           price:item2.price,
           quantity:1
         } 

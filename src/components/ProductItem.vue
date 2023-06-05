@@ -1,8 +1,8 @@
 <template>
     <div class="item">
         <label>{{Product_data.name}}</label>
-        <label>{{Product_data.price}}р</label>
         <img v-if="Product_data.image" :src="Product_data.image" alt="Img">
+        <label>{{Product_data.price}}р</label>
         <button @click="add()" class="addButton">Добавить</button>
     </div>
 </template>

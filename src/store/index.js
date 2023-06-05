@@ -84,7 +84,7 @@ const store = createStore({
         PageNumber:1,
         query_id:window.Telegram.WebApp.initDataUnsafe?.query_id,
         resp:resp,
-        selectedItem:'',
+        selectedItem:[],
         addictions:[],
         selectedItemAddictions:[]
     },
@@ -193,7 +193,7 @@ const store = createStore({
             let search = state.addictions.findIndex(item => item.id === id)
             if(state.addictions[search].quantity === 1)
             {
-                state.addictions.splice(id,1)
+                state.addictions.splice(search,1)
             }
             else
             {
@@ -214,10 +214,11 @@ const store = createStore({
         },
         decSelectedItemAddictions(state,id)
         {
+            console.log(id)
             let search = state.selectedItemAddictions.findIndex(item => item.id === id)
             if(state.selectedItemAddictions[search].quantity === 1)
             {
-                state.selectedItemAddictions.splice(id,1)
+                state.selectedItemAddictions.splice(search,1)
             }
             else
             {

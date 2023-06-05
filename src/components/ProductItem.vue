@@ -50,48 +50,7 @@ export default {
 </script>
 
 <style scoped>
-.minusButton
-{
-    pointer-events: auto;
-    transform: scale3d(1, 1, 1);
-    background-color: #e64d44;
-    transition: transform var(--animation), visibility var(--animation);
-    width: 38px;
-    height: 30px;
-    color: #fff;
-    outline: none;
-    border: none;
-    text-transform: uppercase;
-    display: inline-block;
-    font-family: var(--default-font);
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 18px;
-    padding: 6px 16px;
-    height: 30px;
-    border-radius: 7px;
-    box-sizing: border-box;
-    cursor: pointer;
-}
-.plusButton
-{
-    width: 38px;
-    display: inline-block;
-    font-family: var(--default-font);
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 18px;
-    padding: 6px 16px;
-    height: 30px;
-    border-radius: 7px;
-    box-sizing: border-box;
-    background-color: #f8a917;;
-    text-transform: uppercase;
-    color: #fff;
-    outline: none;
-    border: none;
-    cursor: pointer;
-}
+
 .item
 {
     display: flex;

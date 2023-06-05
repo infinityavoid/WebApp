@@ -20,9 +20,9 @@
           </div>
         </div>
         <div>
-          <button @click="dec(item.id)">-</button>
+          <button class="minusButton" @click="dec(item.id)">-</button>
           <label>{{item.quantity}}</label>
-          <button @click="inc(item.id)">+</button>
+          <button class="plusButton" @click="inc(item.id)">+</button>
         </div>
       </div>
       <div v-for="item2 in AllInfo.resp[AllInfo.resp.findIndex(item => item.ymlId === 2)].products" :key = "item2.id" class="orderList">
@@ -33,10 +33,10 @@
           </div>
         </div>
         <div>
-          <button v-if="AllInfo.addictions[AllInfo.addictions.findIndex(item => item.id === item2.id)]?.quantity" @click="decAddiction(item2)">-</button>
+          <button class="minusButton" v-if="AllInfo.addictions[AllInfo.addictions.findIndex(item => item.id === item2.id)]?.quantity" @click="decAddiction(item2)">-</button>
           <label v-if="AllInfo.addictions[AllInfo.addictions.findIndex(item => item.id === item2.id)]?.quantity">{{AllInfo.addictions[AllInfo.addictions.findIndex(item => item.id === item2.id)].quantity}}</label>
           <label v-else>0</label>
-          <button @click="incAddiction(item2)">+</button>
+          <button class="plusButton" @click="incAddiction(item2)">+</button>
         </div>
       </div>
     </div>
@@ -65,10 +65,10 @@
             </div>
           </div>
           <div>
-            <button v-if="AllInfo.selectedItemAddictions[AllInfo.selectedItemAddictions.findIndex(item => item.id === item2.id)]?.quantity" @click="decSelectedItemAddictions(item2)">-</button>
+            <button class="minusButton" v-if="AllInfo.selectedItemAddictions[AllInfo.selectedItemAddictions.findIndex(item => item.id === item2.id)]?.quantity" @click="decSelectedItemAddictions(item2)">-</button>
             <label v-if="AllInfo.selectedItemAddictions[AllInfo.selectedItemAddictions.findIndex(item => item.id === item2.id)]?.quantity">{{AllInfo.selectedItemAddictions[AllInfo.selectedItemAddictions.findIndex(item => item.id === item2.id)].quantity}}</label>
             <label v-else>0</label>
-            <button @click="incSelectedItemAddictions(item2)">+</button>
+            <button class="plusButton" @click="incSelectedItemAddictions(item2)">+</button>
           </div>
         </div>
       </div>
@@ -81,10 +81,10 @@
             </div>
           </div>
           <div>
-            <button v-if="AllInfo.selectedItemAddictions[AllInfo.selectedItemAddictions.findIndex(item => item.id === item2.id)]?.quantity" @click="decSelectedItemAddictions(item2)">-</button>
+            <button class="minusButton" v-if="AllInfo.selectedItemAddictions[AllInfo.selectedItemAddictions.findIndex(item => item.id === item2.id)]?.quantity" @click="decSelectedItemAddictions(item2)">-</button>
             <label v-if="AllInfo.selectedItemAddictions[AllInfo.selectedItemAddictions.findIndex(item => item.id === item2.id)]?.quantity">{{AllInfo.selectedItemAddictions[AllInfo.selectedItemAddictions.findIndex(item => item.id === item2.id)].quantity}}</label>
             <label v-else>0</label>
-            <button @click="incSelectedItemAddictions(item2)">+</button>
+            <button class="plusButton" @click="incSelectedItemAddictions(item2)">+</button>
           </div>
         </div>
       </div>
@@ -97,10 +97,10 @@
             </div>
           </div>
           <div>
-            <button v-if="AllInfo.selectedItemAddictions[AllInfo.selectedItemAddictions.findIndex(item => item.id === item2.id)]?.quantity" @click="decSelectedItemAddictions(item2)">-</button>
+            <button class="minusButton" v-if="AllInfo.selectedItemAddictions[AllInfo.selectedItemAddictions.findIndex(item => item.id === item2.id)]?.quantity" @click="decSelectedItemAddictions(item2)">-</button>
             <label v-if="AllInfo.selectedItemAddictions[AllInfo.selectedItemAddictions.findIndex(item => item.id === item2.id)]?.quantity">{{AllInfo.selectedItemAddictions[AllInfo.selectedItemAddictions.findIndex(item => item.id === item2.id)].quantity}}</label>
             <label v-else>0</label>
-            <button @click="incSelectedItemAddictions(item2)">+</button>
+            <button class="plusButton" @click="incSelectedItemAddictions(item2)">+</button>
           </div>
         </div>
       </div>
@@ -186,8 +186,9 @@ export default {
       },
       itemPrice()
       {
-        let price = Number(this.AllInfo.selectedItem.price) + Number(this.AllInfo.selectedItemAddictions.map(item => item.price * item.quantity))
-        return price
+        let totalObjPrice = this.AllInfo.selectedItem.price * this.AllInfo.selectedItem.quantity;
+        let totalArrPrice = this.AllInfo.selectedItemAddictions.reduce((acc, cur) => acc + (cur.price * cur.quantity), 0);
+        return totalObjPrice + totalArrPrice
       }
     },  
     mounted()
@@ -217,5 +218,47 @@ export default {
 {
   width: 100%;
   height: 100%;
+}
+.minusButton
+{
+    pointer-events: auto;
+    transform: scale3d(1, 1, 1);
+    background-color: #e64d44;
+    transition: transform var(--animation), visibility var(--animation);
+    width: 38px;
+    height: 30px;
+    color: #fff;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    display: inline-block;
+    font-family: var(--default-font);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 6px 16px;
+    height: 30px;
+    border-radius: 7px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.plusButton
+{
+    width: 38px;
+    display: inline-block;
+    font-family: var(--default-font);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 6px 16px;
+    height: 30px;
+    border-radius: 7px;
+    box-sizing: border-box;
+    background-color: #f8a917;;
+    text-transform: uppercase;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }
 </style>

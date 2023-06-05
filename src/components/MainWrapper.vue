@@ -197,7 +197,7 @@ export default {
 .orderList
 {
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   display: flex;
   margin-left: 5px;
 }

@@ -26,12 +26,10 @@
         </div>
       </div>
       <div v-for="item2 in AllInfo.resp[AllInfo.resp.findIndex(item => item.ymlId === 2)].products" :key = "item2.id" class="orderList">
-        <div style="display: flex; justify-content: space-between;">
-          <div style="display: flex;flex-direction: column; justify-content: flex-start;">
-            <h4>{{item2.name}}</h4>
-            <label>{{item2.price}}₽</label>
+        <div style="display: flex; flex-direction: column;">
+              <label style="padding-top: 10px; font-weight: bold;">{{item2.name}}</label>
+              <label style="align-self: flex-start; padding-top: 5px;">Цена: {{item2.price}}₽</label>
           </div>
-        </div>
         <div>
           <button class="minusButton" v-if="AllInfo.addictions[AllInfo.addictions.findIndex(item => item.id === item2.id)]?.quantity" @click="decAddiction(item2)">-</button>
           <label v-if="AllInfo.addictions[AllInfo.addictions.findIndex(item => item.id === item2.id)]?.quantity">{{AllInfo.addictions[AllInfo.addictions.findIndex(item => item.id === item2.id)].quantity}}</label>

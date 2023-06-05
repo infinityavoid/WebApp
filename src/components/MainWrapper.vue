@@ -194,7 +194,7 @@ export default {
 <style scoped>
 .addButton
 {
-  padding-top: 10px;
+  margin-top: 10px;
     border: none;
     background: rgb(248, 168, 24);
     border-radius: 10px;

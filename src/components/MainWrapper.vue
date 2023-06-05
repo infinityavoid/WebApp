@@ -14,9 +14,9 @@
       <div v-for="item in AllInfo.orderItems" :key = "item.id" class="orderList">
         <div style="display: flex; justify-content: space-between;">
           <img v-if="item.image" :src="item.image" width="100" height="100" alt="Img">
-          <div style="display: flex;flex-direction: column; justify-content: flex-start;">
-            <h4>{{item.name}}</h4>
-            <label>{{item.price}}₽</label>
+          <div style="display: flex; flex-direction: column;">
+              <label style="padding-top: 10px; font-weight: bold;">{{item.name}}</label>
+              <label style="align-self: flex-start; padding-top: 5px;">Цена: {{item.price}}₽</label>
           </div>
         </div>
         <div>
@@ -98,7 +98,7 @@
           </div>
         </div>
       </div>
-      <button style="width: 100%;"
+      <button style="width: 100%;" class="addButton"
       @click="add()"
       >Добавить в корзину за {{itemPrice}}₽</button>
     </div>
@@ -194,6 +194,17 @@ export default {
 </script>
 
 <style scoped>
+.addButton
+{
+    border: none;
+    background: rgb(248, 168, 24);
+    border-radius: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    height: 30px;
+    cursor: pointer;
+}
 .orderList
 {
   align-items: center;

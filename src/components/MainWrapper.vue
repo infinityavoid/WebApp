@@ -58,9 +58,9 @@
       </label>
       <div v-if="AllInfo.selectedItem.categoryId === 5">
         <div v-for="item2 in AllInfo.resp[AllInfo.resp.findIndex(item => item.ymlId === 2)].products.filter(item => (item.id === '13c67785-9d1d-4364-b334-9d296dd040cc') || (item.id === '85ee628e-092c-4d15-85ab-e933c920d525'))" :key = "item2.id" class="orderList">
-          <div style="display: flex; justify-content: space-around; flex-direction: column;">
-              <h4>{{item2.name}}</h4>
-              <label style="align-self: flex-start;">Цена: {{item2.price}}₽</label>
+          <div style="display: flex; flex-direction: column;">
+              <label style="padding-top: 10px; font-weight: bold;">{{item2.name}}</label>
+              <label style="align-self: flex-start; padding-top: 5px;">Цена: {{item2.price}}₽</label>
           </div>
           <div>
             <button class="minusButton" v-if="AllInfo.selectedItemAddictions[AllInfo.selectedItemAddictions.findIndex(item => item.id === item2.id)]?.quantity" @click="decSelectedItemAddictions(item2)">-</button>
@@ -72,9 +72,9 @@
       </div>
       <div v-if="[11,8,12,13,1].includes(AllInfo.selectedItem.categoryId)">
         <div v-for="item2 in AllInfo.resp[AllInfo.resp.findIndex(item => item.ymlId === 2)].products.filter(item => (item.id === '3feefaa1-fb07-4296-b0bf-178124b710cf') || (item.id === '85ee628e-092c-4d15-85ab-e933c920d525')|| (item.id === '993cace1-4316-41be-b764-b7239e197958')|| (item.id === 'f50f1203-9daa-4220-90d1-671fdadb709c'))" :key = "item2.id" class="orderList">
-          <div style="display: flex; justify-content: space-between; flex-direction: column;">
-              <h4>{{item2.name}}</h4>
-              <label style="align-self: flex-start;">Цена: {{item2.price}}₽</label>
+          <div style="display: flex; flex-direction: column;">
+              <label style="padding-top: 10px; font-weight: bold;">{{item2.name}}</label>
+              <label style="align-self: flex-start; padding-top: 5px;">Цена: {{item2.price}}₽</label>
           </div>
           <div>
             <button class="minusButton" v-if="AllInfo.selectedItemAddictions[AllInfo.selectedItemAddictions.findIndex(item => item.id === item2.id)]?.quantity" @click="decSelectedItemAddictions(item2)">-</button>
@@ -86,9 +86,9 @@
       </div>
       <div v-if="AllInfo.selectedItem.categoryId === 4">
         <div v-for="item2 in AllInfo.resp[AllInfo.resp.findIndex(item => item.ymlId === 2)].products.filter(item => (item.id === '1ce05479-6d28-4af1-9c55-aaaf37516481') || (item.id === 'a0dd1326-b1f2-47a3-b043-41a987b24fc2'))" :key = "item2.id" class="orderList">
-          <div style="display: flex; justify-content: space-between; flex-direction: column;">
-              <h4>{{item2.name}}</h4>
-              <label style="align-self: flex-start;">Цена: {{item2.price}}₽</label>
+          <div style="display: flex; flex-direction: column;">
+              <label style="padding-top: 10px; font-weight: bold;">{{item2.name}}</label>
+              <label style="align-self: flex-start; padding-top: 5px;">Цена: {{item2.price}}₽</label>
           </div>
           <div>
             <button class="minusButton" v-if="AllInfo.selectedItemAddictions[AllInfo.selectedItemAddictions.findIndex(item => item.id === item2.id)]?.quantity" @click="decSelectedItemAddictions(item2)">-</button>
